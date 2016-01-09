@@ -8,10 +8,10 @@ import java.util.Map;
 
 import joshua.nrod.json.JSONObject;
 
-public class MyJSON {
+public class MyJSON extends MyListener {
     public void MyJSON() {
 		System.out.println("JSON Script working");
-		String jsonString = "Message: " + MyListener.message(body);
+		String jsonString = "Message: " + MyListener(ListBody);
 		JSONObject jsonObject = new JSONObject(jsonString);
 		JSONObject newJSON = jsonObject.getJSONObject("CA_MSG");
 		System.out.println("Message: " + jsonString);
