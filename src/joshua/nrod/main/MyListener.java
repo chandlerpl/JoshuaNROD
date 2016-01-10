@@ -36,6 +36,13 @@ public class MyListener implements Listener {
 		}
   	
 		for(int i = 0; i < ListBody.size(); i++) {
+			int descr = ListBody.get(i).indexOf("descr");
+			int to = ListBody.get(i).indexOf("to");
+			String descr1 = ListBody.get(i).substring(descr, descr+12);
+			String to1 = ListBody.get(i).substring(to, to+12);
+			
+	   		System.out.println("| Message Recieved: " + descr1 + to1 );
+       
 	   		System.out.println("| Message Recieved: " + ListBody.get(i));
        }
     }
