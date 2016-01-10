@@ -12,7 +12,7 @@ public class MyListener implements Listener {
 	public void message(Map header, String body) {
     
 		System.out.println("| Message Recieved: " + header);
-
+		// System.out.println("| Message Recieved: " + body);
 		final List<String> ListBody = new ArrayList<String>();
    
 		int s = 0;
@@ -35,15 +35,15 @@ public class MyListener implements Listener {
 			}
 		}
   	
-		for(int i = 0; i < ListBody.size(); i++) {
-			int descr = ListBody.get(i).indexOf("descr");
-			int to = ListBody.get(i).indexOf("to");
-			String descr1 = ListBody.get(i).substring(descr, descr+12);
-			String to1 = ListBody.get(i).substring(to, to+12);
-			
-	   		System.out.println("| Message Recieved: " + descr1 + to1 );
-       
-	   		System.out.println("| Message Recieved: " + ListBody.get(i));
+		 for(int i = 0; i < ListBody.size(); i++) {
+			 int descr = ListBody.get(i).indexOf("descr");
+			 int to = ListBody.get(i).indexOf("to");
+			 int from = ListBody.get(i).indexOf("from");
+			 String from1 = ListBody.get(i).substring(from, from+12);
+			 String descr1 = ListBody.get(i).substring(descr, descr+12);
+			 String to1 = ListBody.get(i).substring(to, to+12);
+			 System.out,println("| Message: Consists: " + descr1 + " moved from " + from1 + " to " + to1);
+			 System.out.println("| Message Recieved: " + ListBody.get(i));
        }
     }
 }
