@@ -40,13 +40,14 @@ public class MyListener implements Listener {
 			 //	String msg_type1 = ListBody.get(i).substring(msg_type+11, msg_type+13);
 			 if (body.contains("SF_MSG")) {
 				 ListenerMethods.SF_MSG(ListBody.get(i));
-			}
-			 else if (body.contains("SG_MSG")) {
+			} else if (body.contains("SG_MSG")) {
 				 ListenerMethods.SG_MSG(ListBody.get(i));
 			 } else if (body.contains("SH_MSG")) {
 				 ListenerMethods.SH_MSG(ListBody.get(i));
 			} else if (body.contains("CA_MSG")) {
 				ListenerMethods.CA_MSG(ListBody.get(i)); 
+			} else if (body.contains("CB_MSG")) {
+				ListenerMethods.CB_MSG(ListBody.get(i));
 			} else {
 				 System.out.println("A message that has not yet been decoded has arrived.");
 			}

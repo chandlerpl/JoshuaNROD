@@ -22,6 +22,21 @@ public class ListenerMethods {
 		System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time1);
 	}
 	
+	public static void CB_MSG(String CBMSG) {
+		SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
+		int CB = CBMSG.indexOf("CB_MSG");
+ 		String CB1 = CBMSG.substring(CB, CB+6);
+		int time = CBMSG.indexOf("time");
+		String time1 = CBMSG.substring(time+7, time+20);	
+		int area_id = CBMSG.indexOf("area_id");
+		String area_id1 = CBMSG.substring(area_id+10, area_id+12);
+		int descr = CBMSG.indexOf("descr");
+		 String descr1 = CBMSG.substring(descr+8, descr+12);
+		int from = CBMSG.indexOf("from");
+		 String from1 = CBMSG.substring(from+7, from+11);
+		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
+		System.out.println(CB1 + ": Consist " + descr1 + " in area " + area_id1 + " cancelled from " + from1 + " at " + time1);
+	}
 	
 	public static void SH_MSG(String SHMSG) {
 		int SH = SHMSG.indexOf("SH_MSG");
