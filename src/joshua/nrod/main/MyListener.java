@@ -36,14 +36,52 @@ public class MyListener implements Listener {
 		}
   	
 		 for(int i = 0; i < ListBody.size(); i++) {
+			 int msg_type = ListBody.get(i).indexOf("msg_type");
+			 	String msg_type1 = ListBody.get(i).substring(msg_type+11, msg_type+13);
+			 int SF = ListBody.get(i).indexOf("SF_MSG");
+			 	String SF1 = ListBody.get(i).substring(SF, SF+6);
+			 int SG = ListBody.get(i).indexOf("SG_MSG");
+			 	String SG1 = ListBody.get(i).substring(SG, SG+6);
+			 int SH = ListBody.get(i).indexOf("SH_MSG");
+			 	String SH1 = ListBody.get(i).substring(SH, SH+6);
+			 int CA = ListBody.get(i).indexOf("CA_MSG");
+			 	String CA1 = ListBody.get(i).substring(CA, CA+6);
+			 int CB = ListBody.get(i).indexOf("CB_MSG");
+			 	String CB1 = ListBody.get(i).substring(CB, CB+6);
+			 int CC = ListBody.get(i).indexOf("CC_MSG");
+			 	String CC1 = ListBody.get(i).substring(CC, CC+6);
+			 int CT = ListBody.get(i).indexOf("CT_MSG");
+			 	String CT1 = ListBody.get(i).substring(CT, CT+6);
+			 	
+			 	
 			 int descr = ListBody.get(i).indexOf("descr");
+			 	String descr1 = ListBody.get(i).substring(descr+8, descr+12);
 			 int to = ListBody.get(i).indexOf("to");
+			 	String to1 = ListBody.get(i).substring(to+5, to+9);
 			 int from = ListBody.get(i).indexOf("from");
-			 String from1 = ListBody.get(i).substring(from, from+12);
-			 String descr1 = ListBody.get(i).substring(descr, descr+12);
-			 String to1 = ListBody.get(i).substring(to, to+12);
-			 System.out,println("| Message: Consists: " + descr1 + " moved from " + from1 + " to " + to1);
+			 	String from1 = ListBody.get(i).substring(from+7, from+11);
+			 int area_id = ListBody.get(i).indexOf("area_id");
+			 	String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);
+			// int time = ListBody.get(i).indexOf("time");
+			// int address = ListBody.get(i).indexOf("address");
+			// int data = ListBody.get(i).indexOf("data");
+			// int report_time = ListBody.get(i).indexOf("report_time");
+			 
+			 
+			 
+			 System.out.println("| " + SF1);
+			 System.out.println("| " + SG1);
+			 System.out.println("| " + SH1);
+			 System.out.println("| " + CA1 + ": Consist " + descr1 + " moved from " + from1 + " to " + to1 + " in area " + area_id1);
+			 System.out.println("| " + CB1);
+			 System.out.println("| " + CC1);
+			 System.out.println("| " + CT1);
 			 System.out.println("| Message Recieved: " + ListBody.get(i));
        }
     }
+
+	private String descr1(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
