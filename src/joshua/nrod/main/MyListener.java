@@ -38,64 +38,18 @@ public class MyListener implements Listener {
 		 for(int i = 0; i < ListBody.size(); i++) {
 			// int msg_type = ListBody.get(i).indexOf("msg_type");
 			 //	String msg_type1 = ListBody.get(i).substring(msg_type+11, msg_type+13);
-		
 			 if (body.contains("SF_MSG")) {
-				int SF = ListBody.get(i).indexOf("SF_MSG");
-				 	String SF1 = ListBody.get(i).substring(SF, SF+6);
-				int time = ListBody.get(i).indexOf("time");
-					String time1 = ListBody.get(i).substring(time+7, time+20);	
-				int area_id = ListBody.get(i).indexOf("area_id");
-				 	String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);	
-				int address = ListBody.get(i).indexOf("address");
-					String address1 = ListBody.get(i).substring(address+10, address+12); 	
-				int data = ListBody.get(i).indexOf("data");
-					String data1 = ListBody.get(i).substring(data+7, data+15); 	
-				System.out.println(SF1 + ":Signal in area " + area_id1 + "was updated. (" + address1 + ", " + data1 + ", " + time1 + ")");	
-			 }
+				 ListenerMethods.SF_MSG(ListBody.get(i));
+			}
 			 else if (body.contains("SG_MSG")) {
-				int SG = ListBody.get(i).indexOf("SG_MSG");
-				 	String SG1 = ListBody.get(i).substring(SG, SG+6);
-				int time = ListBody.get(i).indexOf("time");
-					String time1 = ListBody.get(i).substring(time+7, time+20);	
-				int area_id = ListBody.get(i).indexOf("area_id");
-				 	String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);	
-				int address = ListBody.get(i).indexOf("address");
-					String address1 = ListBody.get(i).substring(address+10, address+12); 	
-				int data = ListBody.get(i).indexOf("data");
-					String data1 = ListBody.get(i).substring(data+7, data+15); 	
-				System.out.println(SG1 + ": Signal in area " + area_id1 + "was refreshed. (" + address1 + ", " + data1 + ", " + time1 + ")");	 
-			}
-			 else if (body.contains("SH_MSG")) {
-					int SH = ListBody.get(i).indexOf("SH_MSG");
-					 	String SH1 = ListBody.get(i).substring(SH, SH+6);
-					int time = ListBody.get(i).indexOf("time");
-						String time1 = ListBody.get(i).substring(time+7, time+20);	
-					int area_id = ListBody.get(i).indexOf("area_id");
-					 	String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);	
-					int address = ListBody.get(i).indexOf("address");
-						String address1 = ListBody.get(i).substring(address+10, address+12); 	
-					int data = ListBody.get(i).indexOf("data");
-						String data1 = ListBody.get(i).substring(data+7, data+15); 	
-					System.out.println(SH1 + ": Signal in area " + area_id1 + "was Finished. (" + address1 + ", " + data1 + ", " + time1 + ")");	
-			}
-			 else if (body.contains("CA_MSG")) {
-				 	int CA = ListBody.get(i).indexOf("CA_MSG");
-				 		String CA1 = ListBody.get(i).substring(CA, CA+6);
-				 	int time = ListBody.get(i).indexOf("time");
-						String time1 = ListBody.get(i).substring(time+7, time+20);	
-					int area_id = ListBody.get(i).indexOf("area_id");
-						String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);
-					int descr = ListBody.get(i).indexOf("descr");
-					 	String descr1 = ListBody.get(i).substring(descr+8, descr+12);
-					int to = ListBody.get(i).indexOf("to");
-					 	String to1 = ListBody.get(i).substring(to+5, to+9);
-					int from = ListBody.get(i).indexOf("from");
-					 	String from1 = ListBody.get(i).substring(from+7, from+11);
-					System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time1);
-			 }	
-			 else {
+				 ListenerMethods.SG_MSG(ListBody.get(i));
+			 } else if (body.contains("SH_MSG")) {
+				 ListenerMethods.SH_MSG(ListBody.get(i));
+			} else if (body.contains("CA_MSG")) {
+				ListenerMethods.CA_MSG(ListBody.get(i)); 
+			} else {
 				 System.out.println("A message that has not yet been decoded has arrived.");
-			 }
+			}
 						
 						
 						
