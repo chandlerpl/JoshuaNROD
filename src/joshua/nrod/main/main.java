@@ -31,7 +31,7 @@ public class main {
     
     public void go() throws Exception {
     	
-    	System.out.println("| JPLogics - NROD TD Connection.." + VERSION);
+    	System.out.println("| JPLogics - NROD Connection.." + VERSION);
     	System.out.println("| Welcome " + USER);
     	System.out.println("| Starting connection bond for " + SERVER);
         System.out.println("| Connecting...");
