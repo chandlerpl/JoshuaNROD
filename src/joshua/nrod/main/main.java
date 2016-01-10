@@ -29,7 +29,7 @@ public class main {
         new main().go();
     }
     
-    public void go() throws LoginException, IOException, InterruptedException {
+    public void go() throws Exception {
     	
     	System.out.println("| JPLogics - NROD TD Connection.." + VERSION);
     	System.out.println("| Welcome " + USER);
