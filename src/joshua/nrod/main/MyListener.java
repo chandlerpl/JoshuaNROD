@@ -53,7 +53,7 @@ public class MyListener implements Listener {
 			 int CT = ListBody.get(i).indexOf("CT_MSG");
 			 	String CT1 = ListBody.get(i).substring(CT, CT+6);
 			 	
-			 	
+		 	
 			 int descr = ListBody.get(i).indexOf("descr");
 			 	String descr1 = ListBody.get(i).substring(descr+8, descr+12);
 			 int to = ListBody.get(i).indexOf("to");
@@ -63,9 +63,13 @@ public class MyListener implements Listener {
 			 int area_id = ListBody.get(i).indexOf("area_id");
 			 	String area_id1 = ListBody.get(i).substring(area_id+10, area_id+12);
 			// int time = ListBody.get(i).indexOf("time");
+			 //	String time1 = ListBody.get(i).substring(time+7, time+20);
 			// int address = ListBody.get(i).indexOf("address");
+			 //	String address1 = ListBody.get(i).substring(address+10, address+12);
 			// int data = ListBody.get(i).indexOf("data");
+			//	String data1 = ListBody.get(i).substring(data+7, data+15);
 			// int report_time = ListBody.get(i).indexOf("report_time");
+			//	String report_time1 = ListBody.get(i).substring(report_time+7, report_time+20);
 			 
 			 
 			 
