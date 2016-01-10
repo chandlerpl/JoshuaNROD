@@ -11,8 +11,8 @@ public class MyListener implements Listener {
 	
 	public void message(Map header, String body) {
     
-		System.out.println("| Message Recieved: " + header);
-		// System.out.println("| Message Recieved: " + body);
+		System.out.println("| Message Received: " + header);
+		// System.out.println("| Message Received: " + body);
 		final List<String> ListBody = new ArrayList<String>();
    
 		int s = 0;
@@ -53,7 +53,8 @@ public class MyListener implements Listener {
 			 int CT = ListBody.get(i).indexOf("CT_MSG");
 			 	String CT1 = ListBody.get(i).substring(CT, CT+6);
 			 	
-		 	
+			 	
+			 	
 			 int descr = ListBody.get(i).indexOf("descr");
 			 	String descr1 = ListBody.get(i).substring(descr+8, descr+12);
 			 int to = ListBody.get(i).indexOf("to");
@@ -71,21 +72,16 @@ public class MyListener implements Listener {
 			// int report_time = ListBody.get(i).indexOf("report_time");
 			//	String report_time1 = ListBody.get(i).substring(report_time+7, report_time+20);
 			 
-			 
-			 
+			 System.out.println(msg_type1);
 			 System.out.println("| " + SF1);
 			 System.out.println("| " + SG1);
 			 System.out.println("| " + SH1);
-			 System.out.println("| " + CA1 + ": Consist " + descr1 + " moved from " + from1 + " to " + to1 + " in area " + area_id1);
+			 System.out.println(" " + CA1 + ": Consist " + descr1 + " moved from " + from1 + " to " + to1 + " in area " + area_id1);
 			 System.out.println("| " + CB1);
 			 System.out.println("| " + CC1);
 			 System.out.println("| " + CT1);
-			 System.out.println("| Message Recieved: " + ListBody.get(i));
+			 
        }
     }
 
-	private String descr1(int i, int j) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
