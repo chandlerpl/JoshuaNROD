@@ -38,8 +38,8 @@ public class MyListener implements Listener {
 		 for(int i = 0; i < ListBody.size(); i++) {
 			// int msg_type = ListBody.get(i).indexOf("msg_type");
 			 //	String msg_type1 = ListBody.get(i).substring(msg_type+11, msg_type+13);
-		 
-			 if(body.contains("SF")) {
+		
+			 if (body.contains("SF_MSG")) {
 				int SF = ListBody.get(i).indexOf("SF_MSG");
 				 	String SF1 = ListBody.get(i).substring(SF, SF+6);
 				int time = ListBody.get(i).indexOf("time");
@@ -52,7 +52,7 @@ public class MyListener implements Listener {
 					String data1 = ListBody.get(i).substring(data+7, data+15); 	
 				System.out.println(SF1 + ":Signal in area " + area_id1 + "was updated. (" + address1 + ", " + data1 + ", " + time1 + ")");	
 			 }
-			 else if(body.contains("SG")) {
+			 else if (body.contains("SG_MSG")) {
 				int SG = ListBody.get(i).indexOf("SG_MSG");
 				 	String SG1 = ListBody.get(i).substring(SG, SG+6);
 				int time = ListBody.get(i).indexOf("time");
@@ -65,7 +65,7 @@ public class MyListener implements Listener {
 					String data1 = ListBody.get(i).substring(data+7, data+15); 	
 				System.out.println(SG1 + ": Signal in area " + area_id1 + "was refreshed. (" + address1 + ", " + data1 + ", " + time1 + ")");	 
 			}
-			 else if(body.contains("SH")) {
+			 else if (body.contains("SH_MSG")) {
 					int SH = ListBody.get(i).indexOf("SH_MSG");
 					 	String SH1 = ListBody.get(i).substring(SH, SH+6);
 					int time = ListBody.get(i).indexOf("time");
@@ -78,7 +78,7 @@ public class MyListener implements Listener {
 						String data1 = ListBody.get(i).substring(data+7, data+15); 	
 					System.out.println(SH1 + ": Signal in area " + area_id1 + "was Finished. (" + address1 + ", " + data1 + ", " + time1 + ")");	
 			}
-			 else if(body.contains("CA")) {
+			 else if (body.contains("CA_MSG")) {
 				 	int CA = ListBody.get(i).indexOf("CA_MSG");
 				 		String CA1 = ListBody.get(i).substring(CA, CA+6);
 				 	int time = ListBody.get(i).indexOf("time");
