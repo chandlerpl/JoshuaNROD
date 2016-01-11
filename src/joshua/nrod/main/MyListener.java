@@ -11,7 +11,7 @@ public class MyListener implements Listener {
 	public void message(Map header, String body) {
     
 		System.out.println("| Message Received: " + header);
-		// System.out.println("| Message Received: " + body);
+		//System.out.println("| Message Received: " + body);
 		final List<String> ListBody = new ArrayList<String>();
    
 		int s = 0;

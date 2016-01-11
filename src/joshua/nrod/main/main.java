@@ -1,10 +1,5 @@
 package joshua.nrod.main;
 
-import java.io.OutputStream;
-
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Document;
-
 import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
