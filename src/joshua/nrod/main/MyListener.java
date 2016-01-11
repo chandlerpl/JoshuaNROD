@@ -47,13 +47,13 @@ public class MyListener implements Listener {
 			if (ListBody.get(i).contains("'area_id':'SS'")) {
 				if (ListBody.get(i).startsWith("{'SF_MSG")) {
 					 ListenerMethods.SF_MSG(ListBody.get(i));
-					 System.out.println(ListBody.get(i));
+					// System.out.println(ListBody.get(i));
 				} else if (ListBody.get(i).startsWith("{'SG_MSG")) {
 					 ListenerMethods.SG_MSG(ListBody.get(i));
-					 System.out.println(ListBody.get(i));
+					// System.out.println(ListBody.get(i));
 				 } else if (ListBody.get(i).startsWith("{'SH_MSG")) {
 					 ListenerMethods.SH_MSG(ListBody.get(i));
-					 System.out.println(ListBody.get(i));
+					// System.out.println(ListBody.get(i));
 				} else if (ListBody.get(i).startsWith("{'CA_MSG")) {
 					ListenerMethods.CA_MSG(ListBody.get(i)); 
 				} else if (ListBody.get(i).startsWith("{'CB_MSG")) {
