@@ -17,7 +17,7 @@ public class main {
    
     private static final String USERNAME = "joshuapopelewis@gmail.com";
     
-    private static final String PASSWORD = "1185Jpl!";
+    private static final String PASSWORD = "11985Jpl!";
     
     private static final String SEC_TOKEN = "c2c4b7c8-f0fb-446e-be95-d5ea572cb1c7";
     
@@ -30,7 +30,7 @@ public class main {
     public void go() throws Exception{
     	
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
-    	System.out.println("| Security Token: " + SEC_TOKEN);
+    	System.out.println("| Network Rail Security Token: " + SEC_TOKEN);
     	System.out.println("| Starting connection bond for " + SERVER);
         System.out.println("| Connecting...");
         Client client = new Client(SERVER, PORT, USERNAME, PASSWORD);
