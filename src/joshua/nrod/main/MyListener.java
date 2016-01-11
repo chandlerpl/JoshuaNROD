@@ -10,7 +10,7 @@ public class MyListener implements Listener {
 	
 	public void message(Map header, String body) {
     
-		System.out.println("| Message Received: " + header);
+		//System.out.println("| Message Received: " + header);
 		//System.out.println("| Message Received: " + body);
 		final List<String> ListBody = new ArrayList<String>();
    
@@ -45,6 +45,8 @@ public class MyListener implements Listener {
 				
 				
 			if (ListBody.get(i).contains("'area_id':'SS'")) {
+				if (ListBody.get(i).contains("'descr'")) {
+					
 				if (ListBody.get(i).startsWith("{'SF_MSG")) {
 					 ListenerMethods.SF_MSG(ListBody.get(i));
 					 System.out.println(ListBody.get(i));
@@ -85,6 +87,10 @@ public class MyListener implements Listener {
 				System.out.println(ListBody.get(i));
 			} */
 			}
+			}
+			else {
+					
+				}
 			
 			} catch(Exception e){
 				System.out.println("Exception caught " + e);
