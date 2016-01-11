@@ -14,7 +14,8 @@ public class main {
     
     public static void main(String[] args) throws Exception {
         new main().go();
-    }
+        
+            }
     
     public void go() throws Exception{
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
