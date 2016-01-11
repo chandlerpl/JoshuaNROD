@@ -13,9 +13,9 @@ public class main {
    
     private static final String USERNAME = "joshuapopelewis@gmail.com";
     
-    private static final String PASSWORD = "11985Jpl!";
+    private static final String PASSWORD = "!";
     
-    private static final String SEC_TOKEN = "c2c4b7c8-f0fb-446e-be95-d5ea572cb1c7";
+    private static final String SEC_TOKEN = "";
     
     private static final String TOPIC = "/topic/TD_LNW_C_SIG_AREA";
     
