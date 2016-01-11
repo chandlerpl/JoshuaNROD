@@ -38,36 +38,81 @@ public class ListenerMethods {
 		 System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time2);
 	}
 	
-	public static void CT_MSG(String CTMSG) {
-		int CT = CTMSG.indexOf("CT_MSG");
- 		String CT1 = CTMSG.substring(CT, CT+6);
-		int time = CTMSG.indexOf("time");
-		String time1 = CTMSG.substring(time+7, time+20);	
-		int area_id = CTMSG.indexOf("area_id");
-		String area_id1 = CTMSG.substring(area_id+10, area_id+12);
-		int report_time = CTMSG.indexOf("report_time");
-		 String report_time1 = CTMSG.substring(report_time+14, report_time+18);
-		 
-		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 
-		 System.out.println(CT1 + ": Report Time " + report_time1 + " in area " + area_id1 + " at " + time2);
+		 public static void CT_MSG(String CTMSG) {
+			 CTMSG = CTMSG.replaceAll("\\{", "");   // strip {
+				CTMSG = CTMSG.replaceAll("\\}", "");  // strip }
+				CTMSG = CTMSG.replaceAll("\'", "");  //strip single quotes
+				CTMSG = CTMSG.replaceAll("CT_MSG:",""); //strip the header   
+				//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+				 String[] ctContent = CTMSG.split(",");  // split each value at the commas
+				 
+				 String time = "";
+				 String area = "";
+				 String report_time = "";
+				 String msg_type = "";
+
+				 
+				 
+				 for(int i = 0; i < ctContent.length;i++) {
+				  String[] ctLine = ctContent[i].split(":");   //now split the line at the colon
+				  String tag = ctLine[0];
+				  String val = ctLine[1];
+				  
+				  if(tag.equalsIgnoreCase("time")) {
+					  time = val;
+				  } else if(tag.equalsIgnoreCase("area_id")) {
+					  area = val;
+				  } else if(tag.equalsIgnoreCase("report_time")) {
+					  report_time = val;
+				  } else if(tag.equalsIgnoreCase("msg_type")) {
+					  msg_type = val;
+				  }
+				  
+				  }		 
+				 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
+
+
+		 System.out.println(msg_type + "_MSG: Area " + area + " reported in " + report_time + " at " + time1);
 	}
 	
 	public static void CB_MSG(String CBMSG) {
-		int CB = CBMSG.indexOf("CB_MSG");
- 		String CB1 = CBMSG.substring(CB, CB+6);
-		int time = CBMSG.indexOf("time");
-		String time1 = CBMSG.substring(time+7, time+20);	
-		int area_id = CBMSG.indexOf("area_id");
-		String area_id1 = CBMSG.substring(area_id+10, area_id+12);
-		int descr = CBMSG.indexOf("descr");
-		 String descr1 = CBMSG.substring(descr+8, descr+12);
-		int from = CBMSG.indexOf("from");
-		 String from1 = CBMSG.substring(from+7, from+11);
-		
-		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 
-		 System.out.println(CB1 + ": Consist " + descr1 + " in area " + area_id1 + " cancelled from " + from1 + " at " + time2);
+		 CBMSG = CBMSG.replaceAll("\\{", "");   // strip {
+			CBMSG = CBMSG.replaceAll("\\}", "");  // strip }
+			CBMSG = CBMSG.replaceAll("\'", "");  //strip single quotes
+			CBMSG = CBMSG.replaceAll("CB_MSG:",""); //strip the header   
+			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+			 String[] cbContent = CBMSG.split(",");  // split each value at the commas
+			 
+			 String time = "";
+			 String area = "";
+			 String descr = "";
+			 String from = "";
+			 String msg_type = "";
+
+			 
+			 
+			 for(int i = 0; i < cbContent.length;i++) {
+			  String[] cbLine = cbContent[i].split(":");   //now split the line at the colon
+			  String tag = cbLine[0];
+			  String val = cbLine[1];
+			  
+			  if(tag.equalsIgnoreCase("time")) {
+				  time = val;
+			  } else if(tag.equalsIgnoreCase("area_id")) {
+				  area = val;
+			  } else if(tag.equalsIgnoreCase("descr")) {
+				  descr = val;
+			  } else if(tag.equalsIgnoreCase("from")) {
+				  from = val;
+			  } else if(tag.equalsIgnoreCase("msg_type")) {
+				  msg_type = val;
+			  }
+			  
+			  }		 
+			 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
+
+
+		 System.out.println(msg_type + "_MSG: Consist " + descr + " in area " + area + " cancelled from " + from + " at " + time1);
 }
 	
 	public static void SH_MSG(String SHMSG) {	
