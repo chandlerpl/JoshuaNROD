@@ -67,6 +67,23 @@ public class MyListener implements Listener {
 				} 
 			}
 			else { 
+			/*	if (ListBody.get(i).startsWith("{'SF_MSG")) {
+				 System.out.println("SF_MSG: Out of Area");
+			} else if (ListBody.get(i).startsWith("{'SG_MSG")) {
+				 System.out.println("SG_MSG: Out of Area");
+			 } else if (ListBody.get(i).startsWith("{'SH_MSG")) {
+				 System.out.println("SH_MSG: Out of Area");
+			} else if (ListBody.get(i).startsWith("{'CA_MSG")) {
+				 System.out.println("CA_MSG: Out of Area");
+			} else if (ListBody.get(i).startsWith("{'CB_MSG")) {
+				 System.out.println("CB_MSG: Out of Area"); 
+			} else if (ListBody.get(i).startsWith("{'CT_MSG")) {
+				 System.out.println("CT_MSG: Out of Area"); 
+			} else if (ListBody.get(i).startsWith("{'CC_MSG")) {
+				 System.out.println("CC_MSG: Out of Area"); 
+			} else {
+				System.out.println(ListBody.get(i));
+			} */
 			}
 			
 			} catch(Exception e){
