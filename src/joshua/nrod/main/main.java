@@ -38,6 +38,7 @@ public class main {
         }
         System.out.println("| Subscribing...");
         Listener listener = new MyListener();
+        
         client.subscribe(TOPIC , listener);
         System.out.println("| Subscribed to " + TOPIC);
         System.out.println("| Waiting for message...");

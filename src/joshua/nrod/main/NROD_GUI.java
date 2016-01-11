@@ -9,10 +9,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import javax.swing.JDesktopPane;
 import javax.swing.JTextArea;
+import javax.swing.JLabel;
 
 public class NROD_GUI extends JFrame {
 
-	 JPanel contentPane;
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -44,6 +49,9 @@ public class NROD_GUI extends JFrame {
 		JTextArea GUIConsole = new JTextArea();
 		GUIConsole.setText("GUI-Console");
 		contentPane.add(GUIConsole, BorderLayout.CENTER);
+		
+		JLabel lblS = new JLabel("JPLogics - NROD Connection");
+		contentPane.add(lblS, BorderLayout.NORTH);
 	}
 
 }
