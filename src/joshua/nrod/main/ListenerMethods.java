@@ -1,11 +1,8 @@
 package joshua.nrod.main;
 
-import java.text.SimpleDateFormat;
-
 public class ListenerMethods {
 		
 	public static void CA_MSG(String CAMSG) {
-		SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
 		int CA = CAMSG.indexOf("CA_MSG");
  		String CA1 = CAMSG.substring(CA, CA+6);
 		int time = CAMSG.indexOf("time");
@@ -18,12 +15,13 @@ public class ListenerMethods {
 		 String to1 = CAMSG.substring(to+5, to+9);
 		int from = CAMSG.indexOf("from");
 		 String from1 = CAMSG.substring(from+7, from+11);
-		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
-		System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time1);
+
+		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
+		 
+		 System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time2);
 	}
 	
 	public static void CC_MSG(String CCMSG) {
-		//SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
 		int CC = CCMSG.indexOf("CC_MSG");
  		String CC1 = CCMSG.substring(CC, CC+6);
 		int time = CCMSG.indexOf("time");
@@ -34,12 +32,13 @@ public class ListenerMethods {
 		 String descr1 = CCMSG.substring(descr+8, descr+12);
 		int to = CCMSG.indexOf("to");
 		 String to1 = CCMSG.substring(to+5, to+9);
-		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
-		System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time1);
+
+		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
+		 
+		 System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time2);
 	}
 	
 	public static void CT_MSG(String CTMSG) {
-		//SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
 		int CT = CTMSG.indexOf("CT_MSG");
  		String CT1 = CTMSG.substring(CT, CT+6);
 		int time = CTMSG.indexOf("time");
@@ -48,12 +47,13 @@ public class ListenerMethods {
 		String area_id1 = CTMSG.substring(area_id+10, area_id+12);
 		int report_time = CTMSG.indexOf("report_time");
 		 String report_time1 = CTMSG.substring(report_time+14, report_time+18);
-		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
-		System.out.println(CT1 + ": Report Time " + report_time1 + " in area " + area_id1 + " at " + time1);
+		 
+		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
+		 
+		 System.out.println(CT1 + ": Report Time " + report_time1 + " in area " + area_id1 + " at " + time2);
 	}
 	
 	public static void CB_MSG(String CBMSG) {
-		SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
 		int CB = CBMSG.indexOf("CB_MSG");
  		String CB1 = CBMSG.substring(CB, CB+6);
 		int time = CBMSG.indexOf("time");
@@ -64,9 +64,11 @@ public class ListenerMethods {
 		 String descr1 = CBMSG.substring(descr+8, descr+12);
 		int from = CBMSG.indexOf("from");
 		 String from1 = CBMSG.substring(from+7, from+11);
-		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
-		System.out.println(CB1 + ": Consist " + descr1 + " in area " + area_id1 + " cancelled from " + from1 + " at " + time1);
-	}
+		
+		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
+		 
+		 System.out.println(CB1 + ": Consist " + descr1 + " in area " + area_id1 + " cancelled from " + from1 + " at " + time2);
+}
 	
 	public static void SH_MSG(String SHMSG) {	
 		SHMSG = SHMSG.replaceAll("\\{", "");   // strip {
@@ -100,8 +102,10 @@ public class ListenerMethods {
 			  msg_type = val;
 		  }
 		  
-		  }
-		System.out.println(msg_type + ": Signal in area " + area + "was Finished. (" + address + ", " + data + ", " + time + ")");	
+		  }		 
+		 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
+		 		 
+		System.out.println(msg_type + ": Signal in area " + area + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
 
 	}
 
@@ -139,7 +143,12 @@ public class ListenerMethods {
 		  }
 		  
 		  }
-		 System.out.println(msg_type + ": Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time + ")");
+		 
+		 Long timeStamp = Long.parseLong(time);
+		 
+		 java.util.Date time1 = new java.util.Date((long)timeStamp);
+		 
+		 System.out.println(msg_type + ": Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time1 + ")");
 	}
 
 
@@ -176,7 +185,12 @@ public class ListenerMethods {
 		  }
 		  
 		  }
-	System.out.println(msg_type + ": Signal in area " + area + "was refreshed. (" + address + ", " + data + ", " + time + ")");	 
+		 
+		 Long timeStamp = Long.parseLong(time);
+		 
+		 java.util.Date time1 = new java.util.Date((long)timeStamp);
+		 
+	System.out.println(msg_type + ": Signal in area " + area + " was refreshed. (" + address + ", " + data + ", " + time1 + ")");	 
 
 	}
 	
