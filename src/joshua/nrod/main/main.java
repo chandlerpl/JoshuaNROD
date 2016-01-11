@@ -1,11 +1,15 @@
 package joshua.nrod.main;
 
+import java.io.OutputStream;
+
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+
 import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
 public class main {
-
-
+	
     private static final String SERVER = "datafeeds.networkrail.co.uk";
 
     private static final int PORT = 61618;
