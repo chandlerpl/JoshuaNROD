@@ -22,6 +22,36 @@ public class ListenerMethods {
 		System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time1);
 	}
 	
+	public static void CC_MSG(String CCMSG) {
+		//SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
+		int CC = CCMSG.indexOf("CC_MSG");
+ 		String CC1 = CCMSG.substring(CC, CC+6);
+		int time = CCMSG.indexOf("time");
+		String time1 = CCMSG.substring(time+7, time+20);	
+		int area_id = CCMSG.indexOf("area_id");
+		String area_id1 = CCMSG.substring(area_id+10, area_id+12);
+		int descr = CCMSG.indexOf("descr");
+		 String descr1 = CCMSG.substring(descr+8, descr+12);
+		int to = CCMSG.indexOf("to");
+		 String to1 = CCMSG.substring(to+5, to+9);
+		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
+		System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time1);
+	}
+	
+	public static void CT_MSG(String CTMSG) {
+		//SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
+		int CT = CTMSG.indexOf("CT_MSG");
+ 		String CT1 = CTMSG.substring(CT, CT+6);
+		int time = CTMSG.indexOf("time");
+		String time1 = CTMSG.substring(time+7, time+20);	
+		int area_id = CTMSG.indexOf("area_id");
+		String area_id1 = CTMSG.substring(area_id+10, area_id+12);
+		int report_time = CTMSG.indexOf("report_time");
+		 String report_time1 = CTMSG.substring(report_time+14, report_time+18);
+		//System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + TimeFormat.format(time1));
+		System.out.println(CT1 + ": Report Time " + report_time1 + " in area " + area_id1 + " at " + time1);
+	}
+	
 	public static void CB_MSG(String CBMSG) {
 		SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
 		int CB = CBMSG.indexOf("CB_MSG");
@@ -38,48 +68,115 @@ public class ListenerMethods {
 		System.out.println(CB1 + ": Consist " + descr1 + " in area " + area_id1 + " cancelled from " + from1 + " at " + time1);
 	}
 	
-	public static void SH_MSG(String SHMSG) {
-		int SH = SHMSG.indexOf("SH_MSG");
-	 	String SH1 = SHMSG.substring(SH, SH+6);
-	int time = SHMSG.indexOf("time");
-		String time1 = SHMSG.substring(time+7, time+20);	
-	int area_id = SHMSG.indexOf("area_id");
-	 	String area_id1 = SHMSG.substring(area_id+10, area_id+12);	
-	int address = SHMSG.indexOf("address");
-		String address1 = SHMSG.substring(address+10, address+12); 	
-	int data = SHMSG.indexOf("data");
-		String data1 = SHMSG.substring(data+7, data+15); 	
-	System.out.println(SH1 + ": Signal in area " + area_id1 + "was Finished. (" + address1 + ", " + data1 + ", " + time1 + ")");	
-}
+	public static void SH_MSG(String SHMSG) {	
+		SHMSG = SHMSG.replaceAll("\\{", "");   // strip {
+		SHMSG = SHMSG.replaceAll("\\}", "");  // strip }
+		SHMSG = SHMSG.replaceAll("\'", "");  //strip single quotes
+		SHMSG = SHMSG.replaceAll("SH_MSG:",""); //strip the header   
+		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+		 String[] sfContent = SHMSG.split(",");  // split each value at the commas
+		 
+		 String time = "";
+		 String area = "";
+		 String address = "";
+		 String msg_type = "";
+		 String data = "";
+		 
+		 
+		 for(int i = 0; i < sfContent.length;i++) {
+		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
+		  String tag = sfLine[0];
+		  String val = sfLine[1];
+		  
+		  if(tag.equalsIgnoreCase("time")) {
+			  time = val;
+		  } else if(tag.equalsIgnoreCase("area_id")) {
+			  area = val;
+		  } else if(tag.equalsIgnoreCase("address")) {
+			  address = val;
+		  } else if(tag.equalsIgnoreCase("data")) {
+			  data = val;
+		  } else if(tag.equalsIgnoreCase("msg_type")) {
+			  msg_type = val;
+		  }
+		  
+		  }
+		System.out.println(msg_type + ": Signal in area " + area + "was Finished. (" + address + ", " + data + ", " + time + ")");	
+
+	}
 
 
 	public static void SF_MSG(String SFMSG) {
-		int SF = SFMSG.indexOf("SF_MSG");
-	 	String SF1 = SFMSG.substring(SF, SF+6);
-	int time = SFMSG.indexOf("time");
-		String time1 = SFMSG.substring(time+7, time+20);	
-	int area_id = SFMSG.indexOf("area_id");
-	 	String area_id1 = SFMSG.substring(area_id+10, area_id+12);	
-	int address = SFMSG.indexOf("address");
-		String address1 = SFMSG.substring(address+10, address+12); 	
-	int data = SFMSG.indexOf("data");
-		String data1 = SFMSG.substring(data+7, data+15); 	
-	System.out.println(SF1 + ":Signal in area " + area_id1 + "was updated. (" + address1 + ", " + data1 + ", " + time1 + ")");
+		SFMSG = SFMSG.replaceAll("\\{", "");   // strip {
+		SFMSG = SFMSG.replaceAll("\\}", "");  // strip }
+		SFMSG = SFMSG.replaceAll("\'", "");  //strip single quotes
+		SFMSG = SFMSG.replaceAll("SF_MSG:",""); //strip the header   
+		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+		 String[] sfContent = SFMSG.split(",");  // split each value at the commas
+		 
+		 String time = "";
+		 String area = "";
+		 String address = "";
+		 String msg_type = "";
+		 String data = "";
+		 
+		 
+		 for(int i = 0; i < sfContent.length;i++) {
+		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
+		  String tag = sfLine[0];
+		  String val = sfLine[1];
+		  
+		  if(tag.equalsIgnoreCase("time")) {
+			  time = val;
+		  } else if(tag.equalsIgnoreCase("area_id")) {
+			  area = val;
+		  } else if(tag.equalsIgnoreCase("address")) {
+			  address = val;
+		  } else if(tag.equalsIgnoreCase("data")) {
+			  data = val;
+		  } else if(tag.equalsIgnoreCase("msg_type")) {
+			  msg_type = val;
+		  }
+		  
+		  }
+		 System.out.println(msg_type + ": Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time + ")");
 	}
 
 
 	public static void SG_MSG(String SGMSG) {
-		int SG = SGMSG.indexOf("SG_MSG");
-	 	String SG1 = SGMSG.substring(SG, SG+6);
-	int time = SGMSG.indexOf("time");
-		String time1 = SGMSG.substring(time+7, time+20);	
-	int area_id = SGMSG.indexOf("area_id");
-	 	String area_id1 = SGMSG.substring(area_id+10, area_id+12);	
-	int address = SGMSG.indexOf("address");
-		String address1 = SGMSG.substring(address+10, address+12); 	
-	int data = SGMSG.indexOf("data");
-		String data1 = SGMSG.substring(data+7, data+15); 	
-	System.out.println(SG1 + ": Signal in area " + area_id1 + "was refreshed. (" + address1 + ", " + data1 + ", " + time1 + ")");	 
+		SGMSG = SGMSG.replaceAll("\\{", "");   // strip {
+		SGMSG = SGMSG.replaceAll("\\}", "");  // strip }
+		SGMSG = SGMSG.replaceAll("\'", "");  //strip single quotes
+		SGMSG = SGMSG.replaceAll("SG_MSG:",""); //strip the header   
+		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+		 String[] sfContent = SGMSG.split(",");  // split each value at the commas
+		 
+		 String time = "";
+		 String area = "";
+		 String address = "";
+		 String msg_type = "";
+		 String data = "";
+		 
+		 
+		 for(int i = 0; i < sfContent.length;i++) {
+		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
+		  String tag = sfLine[0];
+		  String val = sfLine[1];
+		  
+		  if(tag.equalsIgnoreCase("time")) {
+			  time = val;
+		  } else if(tag.equalsIgnoreCase("area_id")) {
+			  area = val;
+		  } else if(tag.equalsIgnoreCase("address")) {
+			  address = val;
+		  } else if(tag.equalsIgnoreCase("data")) {
+			  data = val;
+		  } else if(tag.equalsIgnoreCase("msg_type")) {
+			  msg_type = val;
+		  }
+		  
+		  }
+	System.out.println(msg_type + ": Signal in area " + area + "was refreshed. (" + address + ", " + data + ", " + time + ")");	 
 
 	}
 	

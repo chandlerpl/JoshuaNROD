@@ -21,36 +21,57 @@ public class MyListener implements Listener {
 			int t = body.indexOf(".");
 			s = body.indexOf("},{");
   		   
-			if(s == -1) {
-				body = body.substring(s+1, body.length()-1);
+			if(s == -1) {				
+				body = body.substring(s+1, body.length()-1).replaceAll("\"", "'");
 				ListBody.add(body);
 			} else {
 				if(body.contains("[")) {
-					ListBody.add(body.substring(t+2, s+1));
+					
+					String body1= body.substring(t+2, s+1).replaceAll("\"", "'");
+					
+					ListBody.add(body1);
 					body = body.substring(s+2);
 				} else {
-					ListBody.add(body.substring(t+1, s+1));
+					String body1= body.substring(t+1, s+1).replaceAll("\"", "'");
+				
+					ListBody.add(body1);
 					body = body.substring(s+2);
 				}
 			}
 		}
   	
 		 for(int i = 0; i < ListBody.size(); i++) {
-			// int msg_type = ListBody.get(i).indexOf("msg_type");
-			 //	String msg_type1 = ListBody.get(i).substring(msg_type+11, msg_type+13);
-			 if (body.contains("SF_MSG")) {
-				 ListenerMethods.SF_MSG(ListBody.get(i));
-			} else if (body.contains("SG_MSG")) {
-				 ListenerMethods.SG_MSG(ListBody.get(i));
-			 } else if (body.contains("SH_MSG")) {
-				 ListenerMethods.SH_MSG(ListBody.get(i));
-			} else if (body.contains("CA_MSG")) {
-				ListenerMethods.CA_MSG(ListBody.get(i)); 
-			} else if (body.contains("CB_MSG")) {
-				ListenerMethods.CB_MSG(ListBody.get(i));
-			} else {
-				 System.out.println("A message that has not yet been decoded has arrived.");
+			try{
+				Thread.sleep(100);
+				
+				
+				
+				if (ListBody.get(i).startsWith("{'SF_MSG")) {
+					 ListenerMethods.SF_MSG(ListBody.get(i));
+					 //System.out.println("found an SF_MSG at position: " + i + " : " + ListBody.get(i));
+				} else if (ListBody.get(i).startsWith("{'SG_MSG")) {
+					 //ListenerMethods.SG_MSG(ListBody.get(i));
+					 System.out.println("found an SG_MSG at position: " + i + " : " + ListBody.get(i));
+				 } else if (ListBody.get(i).startsWith("{'SH_MSG")) {
+					 //ListenerMethods.SH_MSG(ListBody.get(i));
+					 System.out.println("found an SH_MSG at position: " + i + " : " + ListBody.get(i));
+				} else if (ListBody.get(i).startsWith("{'CA_MSG")) {
+					ListenerMethods.CA_MSG(ListBody.get(i)); 
+				} else if (ListBody.get(i).startsWith("{'CB_MSG")) {
+					ListenerMethods.CB_MSG(ListBody.get(i)); 
+				} else if (ListBody.get(i).startsWith("{'CT_MSG")) {
+					ListenerMethods.CT_MSG(ListBody.get(i)); 
+				} else if (ListBody.get(i).startsWith("{'CC_MSG")) {
+					ListenerMethods.CC_MSG(ListBody.get(i)); 
+				} else {
+					System.out.println(ListBody.get(i));
+				}
+				
+			}catch(Exception e){
+				System.out.println("Exception caught " + e);
 			}
+				 //System.out.println("A message that has not yet been decoded has arrived.");
+		 }
 						
 						
 						
@@ -87,8 +108,6 @@ public class MyListener implements Listener {
 					 //System.out.println("| " + CB1);
 					 //System.out.println("| " + CC1);
 					// System.out.println("| " + CT1);
-			 
-       }
     }
 
 }
