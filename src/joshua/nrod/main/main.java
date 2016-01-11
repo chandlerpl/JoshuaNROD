@@ -1,10 +1,5 @@
 package joshua.nrod.main;
 
-import java.io.Console;
-import java.io.IOException;
-
-import javax.security.auth.login.LoginException;
-
 import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
@@ -44,7 +39,6 @@ public class main {
         }
         System.out.println("| Subscribing...");
         Listener listener = new MyListener();
-		new MyJSON();
         client.subscribe(TOPIC , listener);
         System.out.println("| Subscribed to " + TOPIC);
         System.out.println("| Waiting for message...");
