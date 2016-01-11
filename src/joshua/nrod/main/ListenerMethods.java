@@ -147,7 +147,7 @@ public class ListenerMethods {
 		  
 		  }		 
 		 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
-		 		 
+		 System.out.println(SHMSG);		 
 		System.out.println(msg_type + ": Signal in area " + area + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
 
 	}
@@ -189,7 +189,7 @@ public class ListenerMethods {
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
-		 
+		 System.out.println(SFMSG);
 		 System.out.println(msg_type + ": Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time1 + ")");
 	}
 
@@ -199,7 +199,7 @@ public class ListenerMethods {
 		SGMSG = SGMSG.replaceAll("\\}", "");  
 		SGMSG = SGMSG.replaceAll("\'", "");  
 		SGMSG = SGMSG.replaceAll("SG_MSG:",""); 
-		 String[] sfContent = SGMSG.split(",");
+		 String[] sgContent = SGMSG.split(",");
 		 
 		 String time = "";
 		 String area = "";
@@ -208,10 +208,10 @@ public class ListenerMethods {
 		 String data = "";
 		 
 		 
-		 for(int i = 0; i < sfContent.length;i++) {
-		  String[] sfLine = sfContent[i].split(":");   
-		  String tag = sfLine[0];
-		  String val = sfLine[1];
+		 for(int i = 0; i < sgContent.length;i++) {
+		  String[] sgLine = sgContent[i].split(":");   
+		  String tag = sgLine[0];
+		  String val = sgLine[1];
 		  
 		  if(tag.equalsIgnoreCase("time")) {
 			  time = val;
@@ -230,8 +230,8 @@ public class ListenerMethods {
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
-		 
-	System.out.println(msg_type + ": Signal in area " + area + " was refreshed. (" + address + ", " + data + ", " + time1 + ")");	 
+		 System.out.println(SGMSG);
+		 System.out.println(msg_type + ": Signal in area " + area + " was refreshed. (" + address + ", " + data + ", " + time1 + ")");	 
 
 	}
 	
