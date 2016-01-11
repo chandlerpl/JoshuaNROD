@@ -147,7 +147,7 @@ public class ListenerMethods {
 		  
 		  }		 
 		 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
-		 System.out.println(SHMSG);		 
+		 	 
 		System.out.println(msg_type + ": Signal in area " + area + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
 
 	}
@@ -189,7 +189,7 @@ public class ListenerMethods {
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
-		 System.out.println(SFMSG);
+		 
 		 System.out.println(msg_type + ": Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time1 + ")");
 	}
 
@@ -230,7 +230,7 @@ public class ListenerMethods {
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
-		 System.out.println(SGMSG);
+		 
 		 System.out.println(msg_type + ": Signal in area " + area + " was refreshed. (" + address + ", " + data + ", " + time1 + ")");	 
 
 	}

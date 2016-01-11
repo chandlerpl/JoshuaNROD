@@ -44,16 +44,16 @@ public class MyListener implements Listener {
 				Thread.sleep(100);
 				
 				
-				
+			if (ListBody.get(i).contains("'area_id':'SS'")) {
 				if (ListBody.get(i).startsWith("{'SF_MSG")) {
 					 ListenerMethods.SF_MSG(ListBody.get(i));
-					 //System.out.println("found an SF_MSG at position: " + i + " : " + ListBody.get(i));
+					 System.out.println(ListBody.get(i));
 				} else if (ListBody.get(i).startsWith("{'SG_MSG")) {
 					 ListenerMethods.SG_MSG(ListBody.get(i));
-					 //System.out.println("found an SG_MSG at position: " + i + " : " + ListBody.get(i));
+					 System.out.println(ListBody.get(i));
 				 } else if (ListBody.get(i).startsWith("{'SH_MSG")) {
 					 ListenerMethods.SH_MSG(ListBody.get(i));
-					 //System.out.println("found an SH_MSG at position: " + i + " : " + ListBody.get(i));
+					 System.out.println(ListBody.get(i));
 				} else if (ListBody.get(i).startsWith("{'CA_MSG")) {
 					ListenerMethods.CA_MSG(ListBody.get(i)); 
 				} else if (ListBody.get(i).startsWith("{'CB_MSG")) {
@@ -64,9 +64,12 @@ public class MyListener implements Listener {
 					ListenerMethods.CC_MSG(ListBody.get(i)); 
 				} else {
 					System.out.println(ListBody.get(i));
-				}
-				
-			}catch(Exception e){
+				} 
+			}
+			else { 
+			}
+			
+			} catch(Exception e){
 				System.out.println("Exception caught " + e);
 			}
 				 //System.out.println("A message that has not yet been decoded has arrived.");
