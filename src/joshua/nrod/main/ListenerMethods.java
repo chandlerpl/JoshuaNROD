@@ -1,5 +1,5 @@
 package joshua.nrod.main;
-
+// Copyright Joshua Pope-Lewis
 public class ListenerMethods {
 		
 	public static void CA_MSG(String CAMSG) {
@@ -76,12 +76,11 @@ public class ListenerMethods {
 	}
 	
 	public static void CB_MSG(String CBMSG) {
-		 CBMSG = CBMSG.replaceAll("\\{", "");   // strip {
-			CBMSG = CBMSG.replaceAll("\\}", "");  // strip }
-			CBMSG = CBMSG.replaceAll("\'", "");  //strip single quotes
-			CBMSG = CBMSG.replaceAll("CB_MSG:",""); //strip the header   
-			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-			 String[] cbContent = CBMSG.split(",");  // split each value at the commas
+		 CBMSG = CBMSG.replaceAll("\\{", "");   
+			CBMSG = CBMSG.replaceAll("\\}", "");  
+			CBMSG = CBMSG.replaceAll("\'", "");  
+			CBMSG = CBMSG.replaceAll("CB_MSG:","");   
+			 String[] cbContent = CBMSG.split(",");  
 			 
 			 String time = "";
 			 String area = "";
@@ -92,7 +91,7 @@ public class ListenerMethods {
 			 
 			 
 			 for(int i = 0; i < cbContent.length;i++) {
-			  String[] cbLine = cbContent[i].split(":");   //now split the line at the colon
+			  String[] cbLine = cbContent[i].split(":");  
 			  String tag = cbLine[0];
 			  String val = cbLine[1];
 			  
@@ -116,12 +115,11 @@ public class ListenerMethods {
 }
 	
 	public static void SH_MSG(String SHMSG) {	
-		SHMSG = SHMSG.replaceAll("\\{", "");   // strip {
-		SHMSG = SHMSG.replaceAll("\\}", "");  // strip }
-		SHMSG = SHMSG.replaceAll("\'", "");  //strip single quotes
-		SHMSG = SHMSG.replaceAll("SH_MSG:",""); //strip the header   
-		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-		 String[] sfContent = SHMSG.split(",");  // split each value at the commas
+		SHMSG = SHMSG.replaceAll("\\{", "");  
+		SHMSG = SHMSG.replaceAll("\\}", "");  
+		SHMSG = SHMSG.replaceAll("\'", "");  
+		SHMSG = SHMSG.replaceAll("SH_MSG:",""); 
+		 String[] sfContent = SHMSG.split(","); 
 		 
 		 String time = "";
 		 String area = "";
@@ -156,12 +154,11 @@ public class ListenerMethods {
 
 
 	public static void SF_MSG(String SFMSG) {
-		SFMSG = SFMSG.replaceAll("\\{", "");   // strip {
-		SFMSG = SFMSG.replaceAll("\\}", "");  // strip }
-		SFMSG = SFMSG.replaceAll("\'", "");  //strip single quotes
-		SFMSG = SFMSG.replaceAll("SF_MSG:",""); //strip the header   
-		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-		 String[] sfContent = SFMSG.split(",");  // split each value at the commas
+		SFMSG = SFMSG.replaceAll("\\{", "");    
+		SFMSG = SFMSG.replaceAll("\\}", ""); 
+		SFMSG = SFMSG.replaceAll("\'", "");  
+		SFMSG = SFMSG.replaceAll("SF_MSG:","");   
+		 String[] sfContent = SFMSG.split(",");  
 		 
 		 String time = "";
 		 String area = "";
@@ -171,7 +168,7 @@ public class ListenerMethods {
 		 
 		 
 		 for(int i = 0; i < sfContent.length;i++) {
-		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
+		  String[] sfLine = sfContent[i].split(":");  
 		  String tag = sfLine[0];
 		  String val = sfLine[1];
 		  
@@ -198,12 +195,11 @@ public class ListenerMethods {
 
 
 	public static void SG_MSG(String SGMSG) {
-		SGMSG = SGMSG.replaceAll("\\{", "");   // strip {
-		SGMSG = SGMSG.replaceAll("\\}", "");  // strip }
-		SGMSG = SGMSG.replaceAll("\'", "");  //strip single quotes
-		SGMSG = SGMSG.replaceAll("SG_MSG:",""); //strip the header   
-		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-		 String[] sfContent = SGMSG.split(",");  // split each value at the commas
+		SGMSG = SGMSG.replaceAll("\\{", "");   
+		SGMSG = SGMSG.replaceAll("\\}", "");  
+		SGMSG = SGMSG.replaceAll("\'", "");  
+		SGMSG = SGMSG.replaceAll("SG_MSG:",""); 
+		 String[] sfContent = SGMSG.split(",");
 		 
 		 String time = "";
 		 String area = "";
@@ -213,7 +209,7 @@ public class ListenerMethods {
 		 
 		 
 		 for(int i = 0; i < sfContent.length;i++) {
-		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
+		  String[] sfLine = sfContent[i].split(":");   
 		  String tag = sfLine[0];
 		  String val = sfLine[1];
 		  
