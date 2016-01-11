@@ -39,6 +39,7 @@ public class NROD_GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public NROD_GUI() {
+		setTitle("JPLogics - NROD Connection");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +50,6 @@ public class NROD_GUI extends JFrame {
 		JTextArea GUIConsole = new JTextArea();
 		GUIConsole.setText("GUI-Console");
 		contentPane.add(GUIConsole, BorderLayout.CENTER);
-		
 		JLabel lblS = new JLabel("JPLogics - NROD Connection");
 		contentPane.add(lblS, BorderLayout.NORTH);
 	}
