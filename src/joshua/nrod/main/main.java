@@ -10,13 +10,6 @@ public class main {
     private static final int PORT = 61618;
     
     private static final String VERSION = "v0.1";
-   
-    private static final String USERNAME = "joshuapopelewis@gmail.com";
-    
-    private static final String PASSWORD = "!";
-    
-    private static final String SEC_TOKEN = "";
-    
     private static final String TOPIC = "/topic/TD_LNW_C_SIG_AREA";
     
     public static void main(String[] args) throws Exception {
@@ -24,12 +17,11 @@ public class main {
     }
     
     public void go() throws Exception{
-    	
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
-    	System.out.println("| Network Rail Security Token: " + SEC_TOKEN);
+    	System.out.println("| Network Rail Security Token: " + MyAuth.SEC_TOKEN);
     	System.out.println("| Starting connection bond for " + SERVER);
         System.out.println("| Connecting...");
-        Client client = new Client(SERVER, PORT, USERNAME, PASSWORD);
+        Client client = new Client(SERVER, PORT, MyAuth.USERNAME, MyAuth.PASSWORD);
         if (client.isConnected()) {
             System.out.println("| Connected to " + SERVER + ":" + PORT);
         } else {
