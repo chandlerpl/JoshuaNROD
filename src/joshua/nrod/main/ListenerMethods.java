@@ -17,9 +17,9 @@ public class ListenerMethods {
 		 String from1 = CAMSG.substring(from+7, from+11);
 
 		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 
-		 System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time2);
-	}
+		 System.out.println(CA1 + "_MSG: Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time2);
+
+		 	}
 	
 	public static void CC_MSG(String CCMSG) {
 		int CC = CCMSG.indexOf("CC_MSG");
@@ -234,5 +234,4 @@ public class ListenerMethods {
 		 System.out.println(msg_type + "_MSG: Signal in area " + area + " was refreshed. (" + address + ", " + data + ", " + time1 + ")");	 
 
 	}
-	
 }
