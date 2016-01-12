@@ -10,7 +10,6 @@ public class main {
     private static final int PORT = 61618;
     
     private static final String VERSION = "v0.1";
-    private static final String TOPIC = "/topic/TD_LNW_C_SIG_AREA";
     
     public static void main(String[] args) throws Exception {
         new main().go();
@@ -30,10 +29,15 @@ public class main {
             return;
         }
         System.out.println("| Subscribing...");
-        Listener listener = new MyListener();
+        Listener SIGlistener = new MySIGListener();
+        Listener MVTlistener = new MyMVTListener();
         
-        client.subscribe(TOPIC , listener);
-        System.out.println("| Subscribed to " + TOPIC);
+        client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
+        System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
+        System.out.println("| Waiting for message...");
+        
+        client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
+        System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
         System.out.println("| Waiting for message...");
     }
 }
