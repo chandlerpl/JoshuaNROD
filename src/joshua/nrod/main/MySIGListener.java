@@ -12,7 +12,7 @@ public class MySIGListener implements Listener {
     
 		//System.out.println("| Message Received: " + header);
 		//System.out.println("| Message Received: " + body);
-		final List<String> ListBody = new ArrayList<String>();
+		final List<String> ListBodySIG = new ArrayList<String>();
    
 		int s = 0;
       	
@@ -22,48 +22,48 @@ public class MySIGListener implements Listener {
   		   
 			if(s == -1) {				
 				body = body.substring(s+1, body.length()-1).replaceAll("\"", "'");
-				ListBody.add(body);
+				ListBodySIG.add(body);
 			} else {
 				if(body.contains("[")) {
 					
 					String body1= body.substring(t+2, s+1).replaceAll("\"", "'");
 					
-					ListBody.add(body1);
+					ListBodySIG.add(body1);
 					body = body.substring(s+2);
 				} else {
 					String body1= body.substring(t+1, s+1).replaceAll("\"", "'");
 				
-					ListBody.add(body1);
+					ListBodySIG.add(body1);
 					body = body.substring(s+2);
 				}
 			}
 		}
   	
-		 for(int i = 0; i < ListBody.size(); i++) {
+		 for(int i = 0; i < ListBodySIG.size(); i++) {
 			try{
 				Thread.sleep(100);
 				
 				
-			if (ListBody.get(i).contains("'area_id':'SS'")) {
-				if (ListBody.get(i).startsWith("{'SF_MSG")) {
-					 ListenerMethods.SF_MSG(ListBody.get(i));
+			if (ListBodySIG.get(i).contains("'area_id':'SS'")) {
+				if (ListBodySIG.get(i).startsWith("{'SF_MSG")) {
+					 SIGMethods.SF_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
-				} else if (ListBody.get(i).startsWith("{'SG_MSG")) {
-					 ListenerMethods.SG_MSG(ListBody.get(i));
+				} else if (ListBodySIG.get(i).startsWith("{'SG_MSG")) {
+					 SIGMethods.SG_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
-				 } else if (ListBody.get(i).startsWith("{'SH_MSG")) {
-					 ListenerMethods.SH_MSG(ListBody.get(i));
+				 } else if (ListBodySIG.get(i).startsWith("{'SH_MSG")) {
+					 SIGMethods.SH_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
-				} else if (ListBody.get(i).startsWith("{'CA_MSG")) {
-					ListenerMethods.CA_MSG(ListBody.get(i)); 
-				} else if (ListBody.get(i).startsWith("{'CB_MSG")) {
-					ListenerMethods.CB_MSG(ListBody.get(i)); 
-				} else if (ListBody.get(i).startsWith("{'CT_MSG")) {
-					ListenerMethods.CT_MSG(ListBody.get(i)); 
-				} else if (ListBody.get(i).startsWith("{'CC_MSG")) {
-					ListenerMethods.CC_MSG(ListBody.get(i)); 
+				} else if (ListBodySIG.get(i).startsWith("{'CA_MSG")) {
+					SIGMethods.CA_MSG(ListBodySIG.get(i)); 
+				} else if (ListBodySIG.get(i).startsWith("{'CB_MSG")) {
+					SIGMethods.CB_MSG(ListBodySIG.get(i)); 
+				} else if (ListBodySIG.get(i).startsWith("{'CT_MSG")) {
+					SIGMethods.CT_MSG(ListBodySIG.get(i)); 
+				} else if (ListBodySIG.get(i).startsWith("{'CC_MSG")) {
+					SIGMethods.CC_MSG(ListBodySIG.get(i)); 
 				} else {
-					System.out.println(ListBody.get(i));
+					System.out.println(ListBodySIG.get(i));
 				} 
 			}
 			else { 
