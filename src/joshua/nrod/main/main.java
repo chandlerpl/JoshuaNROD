@@ -31,13 +31,13 @@ public class main {
         System.out.println("| Subscribing...");
         Listener SIGlistener = new MySIGListener();
         Listener MVTlistener = new MyMVTListener();
+        Listener RTPMlistener = new MyRTPMListener();
         
         client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
-        System.out.println("| Waiting for message...");
-        
         client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
-        System.out.println("| Waiting for message...");
+        client.subscribe(MyFeeds.TOPIC_RTPM, RTPMlistener);
+        System.out.println("| Waiting for messages...");
     }
 }
