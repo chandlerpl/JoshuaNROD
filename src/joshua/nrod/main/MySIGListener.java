@@ -45,32 +45,41 @@ public class MySIGListener implements Listener {
 				
 				
 			if (ListBodySIG.get(i).contains("'area_id':'SS'")) {
-				if (ListBodySIG.get(i).startsWith("{'SF_MSG")) {
-					 SIGMethods.SF_MSG(ListBodySIG.get(i));
+				//if (ListBodySIG.get(i).contains("'address'':'")) {
+					if (ListBodySIG.get(i).startsWith("{'SF_MSG")) {
+						SIGMethods.SF_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBodySIG.get(i));
-				} else if (ListBodySIG.get(i).startsWith("{'SG_MSG")) {
-					 SIGMethods.SG_MSG(ListBodySIG.get(i));
+					} else if (ListBodySIG.get(i).startsWith("{'SG_MSG")) {
+						SIGMethods.SG_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
-				 } else if (ListBodySIG.get(i).startsWith("{'SH_MSG")) {
-					 SIGMethods.SH_MSG(ListBodySIG.get(i));
+					} else if (ListBodySIG.get(i).startsWith("{'SH_MSG")) {
+						SIGMethods.SH_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
-				} else if (ListBodySIG.get(i).startsWith("{'CA_MSG")) {
-					SIGMethods.CA_MSG(ListBodySIG.get(i)); 
-				} else if (ListBodySIG.get(i).startsWith("{'CB_MSG")) {
-					SIGMethods.CB_MSG(ListBodySIG.get(i)); 
-				} else if (ListBodySIG.get(i).startsWith("{'CT_MSG")) {
-					SIGMethods.CT_MSG(ListBodySIG.get(i)); 
-				} else if (ListBodySIG.get(i).startsWith("{'CC_MSG")) {
-					SIGMethods.CC_MSG(ListBodySIG.get(i)); 
+					} else {
+					} 
 				} else {
-					System.out.println(ListBodySIG.get(i));
-				} 
+				}	
+					
+				if (ListBodySIG.get(i).contains("'area_id':'SS'")) {
+					if (ListBodySIG.get(i).contains("'descr'")) {
+						if (ListBodySIG.get(i).startsWith("{'CA_MSG")) {
+					 		SIGMethods.CA_MSG(ListBodySIG.get(i)); 
+					 	} else if (ListBodySIG.get(i).startsWith("{'CB_MSG")) {
+					 		SIGMethods.CB_MSG(ListBodySIG.get(i)); 
+					 	} else if (ListBodySIG.get(i).startsWith("{'CT_MSG")) {
+					 		SIGMethods.CT_MSG(ListBodySIG.get(i)); 
+					 	} else if (ListBodySIG.get(i).startsWith("{'CC_MSG")) {
+					 		SIGMethods.CC_MSG(ListBodySIG.get(i)); 
+					 	} else {
+					 		
+					 	}
+						//System.out.println(ListBodySIG.get(i));
+					} else {
+				}			
 			}
 			else { 
-				
 			}
-			
-			
+		//	}	
 			} catch(Exception e){
 				System.out.println("Exception caught " + e);
 			}

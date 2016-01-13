@@ -20,6 +20,7 @@ public class main {
             }
     
     public void go() throws Exception{
+    	System.gc();
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
     	System.out.println("| Network Rail Security Token: " + MyAuth.SEC_TOKEN);
     	System.out.println("| Starting connection bond for " + SERVER);
@@ -33,15 +34,15 @@ public class main {
         }
         System.out.println("| Subscribing...");
         Listener SIGlistener = new MySIGListener();
-        Listener MVTlistener = new MyMVTListener();
-        Listener RTPMlistener = new MyRTPMListener();
+    //    Listener MVTlistener = new MyMVTListener();
+     //   Listener RTPMlistener = new MyRTPMListener();
         
         client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
-       client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
-        System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
-       client.subscribe(MyFeeds.TOPIC_RTPM, RTPMlistener);
-        System.out.println("| Subscribed to " +MyFeeds.TOPIC_RTPM_ALL);
+     //  client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
+    //    System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
+    //   client.subscribe(MyFeeds.TOPIC_RTPM, RTPMlistener);
+     //   System.out.println("| Subscribed to " +MyFeeds.TOPIC_RTPM_ALL);
         System.out.println("| Waiting for messages...");
     }
 }
