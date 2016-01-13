@@ -4,10 +4,7 @@ import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
 public class main {
-	
-	
-	
-	
+
     private static final String SERVER = "datafeeds.networkrail.co.uk";
 
     private static final int PORT = 61618;

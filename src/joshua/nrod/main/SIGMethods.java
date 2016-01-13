@@ -1,4 +1,9 @@
 package joshua.nrod.main;
+
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+
 // Copyright Joshua Pope-Lewis
 
 
@@ -37,7 +42,7 @@ public class SIGMethods {
 
 		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
 		 
-		 System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time2);
+		System.out.println(CC1 + ": Consist " + descr1 + " in area " + area_id1 + " entered into " + to1 + " at " + time2);
 	}
 	
 		 public static void CT_MSG(String CTMSG) {
@@ -121,7 +126,7 @@ public class SIGMethods {
 		SHMSG = SHMSG.replaceAll("\\}", "");  
 		SHMSG = SHMSG.replaceAll("\'", "");  
 		SHMSG = SHMSG.replaceAll("SH_MSG:",""); 
-		 String[] sfContent = SHMSG.split(","); 
+		 String[] shContent = SHMSG.split(","); 
 		 
 		 String time = "";
 		 String area = "";
@@ -130,10 +135,10 @@ public class SIGMethods {
 		 String data = "";
 		 
 		 
-		 for(int i = 0; i < sfContent.length;i++) {
-		  String[] sfLine = sfContent[i].split(":");   //now split the line at the colon
-		  String tag = sfLine[0];
-		  String val = sfLine[1];
+		 for(int i = 0; i < shContent.length;i++) {
+		  String[] shLine = shContent[i].split(":");   //now split the line at the colon
+		  String tag = shLine[0];
+		  String val = shLine[1];
 		  
 		  if(tag.equalsIgnoreCase("time")) {
 			  time = val;
@@ -147,10 +152,12 @@ public class SIGMethods {
 			  msg_type = val;
 		  }
 		  
-		  }		 
+		  }
+		 String data1 = String.format("%8s", Integer.toBinaryString(0xFF)).replace(' ', '0');
+
 		 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
 		 	 
-		System.out.println(msg_type + "_MSG: Signal in area " + area + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
+		System.out.println(msg_type + "_MSG: Signal in area " + data1 + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
 
 	}
 
@@ -187,15 +194,18 @@ public class SIGMethods {
 		  }
 		  
 		  }
-		 
+		
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
 		 
-		 System.out.println(msg_type + "_MSG: Signal in area " + area + " was updated. (" + address + ", " + data + ", " + time1 + ")");
+		 
+		 String text = address+data;
+		int data2 =  Integer.parseInt(text, 16);
+	 System.out.println(msg_type + "_MSG: Signal in area " + data2 + " was updated. (" + address + ", " + data + ", " + time1 + ")");
+
+
 	}
-
-
 	public static void SG_MSG(String SGMSG) {
 		SGMSG = SGMSG.replaceAll("\\{", "");   
 		SGMSG = SGMSG.replaceAll("\\}", "");  
