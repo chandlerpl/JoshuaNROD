@@ -3,7 +3,7 @@ package joshua.nrod.main;
 import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
-public class TD_main {
+public class main {
 	
 	
 	
@@ -15,7 +15,7 @@ public class TD_main {
     private static final String VERSION = "v0.1";
     
     public static void main(String[] args) throws Exception {
-        new TD_main().go();
+        new main().go();
         
             }
     
