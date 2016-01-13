@@ -36,11 +36,11 @@ public class main {
         Listener MVTlistener = new MyMVTListener();
         Listener RTPMlistener = new MyRTPMListener();
         
-       // client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
+        client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
-       // client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
+       client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
-        client.subscribe(MyFeeds.TOPIC_RTPM, RTPMlistener);
+       client.subscribe(MyFeeds.TOPIC_RTPM, RTPMlistener);
         System.out.println("| Subscribed to " +MyFeeds.TOPIC_RTPM_ALL);
         System.out.println("| Waiting for messages...");
     }

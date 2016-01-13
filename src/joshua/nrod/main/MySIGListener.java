@@ -47,7 +47,7 @@ public class MySIGListener implements Listener {
 			if (ListBodySIG.get(i).contains("'area_id':'SS'")) {
 				if (ListBodySIG.get(i).startsWith("{'SF_MSG")) {
 					 SIGMethods.SF_MSG(ListBodySIG.get(i));
-					// System.out.println(ListBody.get(i));
+					// System.out.println(ListBodySIG.get(i));
 				} else if (ListBodySIG.get(i).startsWith("{'SG_MSG")) {
 					 SIGMethods.SG_MSG(ListBodySIG.get(i));
 					// System.out.println(ListBody.get(i));
