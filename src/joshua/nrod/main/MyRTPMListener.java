@@ -11,7 +11,7 @@ public class MyRTPMListener implements Listener {
 		@Override
 		public void message(Map header, String body) {
 			//System.out.println(header);
-			//System.out.println("RTPM_MSG: "+body);
+			System.out.println("RTPM_MSG: "+body);
 			final List<String> ListBodyRTPM = new ArrayList<String>();
 			   
 			int s = 0;
@@ -37,8 +37,9 @@ public class MyRTPMListener implements Listener {
 					}
 				}
 			}
-	  	
+			
 			 for(int i = 0; i < ListBodyRTPM.size(); i++) {
+				 System.out.println(ListBodyRTPM.get(i));
 				try{
 					Thread.sleep(100);
 					
@@ -46,7 +47,7 @@ public class MyRTPMListener implements Listener {
 						 RTPMMethods.RTPM_MSG(ListBodyRTPM.get(i));
 						System.out.println("RTPM_MSG: " +ListBodyRTPM.get(i)); 
 					} else {
-						// System.out.println(ListBodyRTPM.get(i));
+						 
 					}
 
 					

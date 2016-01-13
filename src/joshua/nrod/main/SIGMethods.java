@@ -1,5 +1,7 @@
 package joshua.nrod.main;
 // Copyright Joshua Pope-Lewis
+
+
 public class SIGMethods {
 		
 	public static void CA_MSG(String CAMSG) {
@@ -17,7 +19,7 @@ public class SIGMethods {
 		 String from1 = CAMSG.substring(from+7, from+11);
 
 		 java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 System.out.println(CA1 + "_MSG: Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time2);
+		 System.out.println(CA1 + ": Consist " + descr1 + " in area " + area_id1 + " moved from " + from1 + " to " + to1 + " at " + time2);
 
 		 	}
 	

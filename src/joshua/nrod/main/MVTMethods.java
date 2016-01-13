@@ -1,5 +1,7 @@
 package joshua.nrod.main;
 
+import java.lang.invoke.MethodHandles.Lookup;
+
 public class MVTMethods {
 	public static void MVT_0001_MSG(String MVT_MSG) {
 		int MVTType = MVT_MSG.indexOf("msg_type");
