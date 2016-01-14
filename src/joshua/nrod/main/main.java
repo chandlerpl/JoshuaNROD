@@ -33,7 +33,6 @@ public class main {
         Listener SIGlistener = new MySIGListener();
         Listener MVTlistener = new MyMVTListener();
         
-        
         client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
         client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
