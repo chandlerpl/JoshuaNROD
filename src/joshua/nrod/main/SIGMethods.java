@@ -1,6 +1,7 @@
 package joshua.nrod.main;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
@@ -153,11 +154,10 @@ public class SIGMethods {
 		  }
 		  
 		  }
-		 String data1 = String.format("%8s", Integer.toBinaryString(0xFF)).replace(' ', '0');
-
+		 
 		 java.util.Date time1 = new java.util.Date(Long.parseLong(time));
 		 	 
-		System.out.println(msg_type + "_MSG: Signal in area " + data1 + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
+		System.out.println(msg_type + "_MSG: Signal in area " + data + " was Finished. (" + address + ", " + data + ", " + time1 + ")");	
 
 	}
 
@@ -198,11 +198,9 @@ public class SIGMethods {
 		 Long timeStamp = Long.parseLong(time);
 		 
 		 java.util.Date time1 = new java.util.Date((long)timeStamp);
-		 
-		 
-		 String text = address+data;
-		int data2 =  Integer.parseInt(text, 16);
-	 System.out.println(msg_type + "_MSG: Signal in area " + data2 + " was updated. (" + address + ", " + data + ", " + time1 + ")");
+		 byte[] data1 = new BigInteger(data,16).toByteArray();
+ 
+	 System.out.println(msg_type + "_MSG: Signal in area " + area +  " was updated: " + address + ", " + data1 + " at " + time1 + ".");
 
 
 	}
