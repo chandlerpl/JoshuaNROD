@@ -32,11 +32,18 @@ public class main {
         System.out.println("| Subscribing...");
         Listener SIGlistener = new MySIGListener();
         Listener MVTlistener = new MyMVTListener();
+        Listener TSRlistener = new MyTSRListener();
+        Listener RTPMlistener = new MyRTPMListener();
         
         client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
         client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
         System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
+        client.subscribe(MyFeeds.TOPIC_TSR , TSRlistener);
+        System.out.println("| Subscribed to " + MyFeeds.TOPIC_TSR_AREA);
+        client.subscribe(MyFeeds.TOPIC_RTTPM , RTPMlistener);
+        System.out.println("| Subscribed to " + MyFeeds.TOPIC_RTTPM_ALL);
+        
         System.out.println("| Waiting for messages...");
     }
 }

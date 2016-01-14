@@ -1,9 +1,10 @@
-package joshua.nrod.main;
+//--------------------SIG Methods---------------------------\\
+//------------------FUNCTIONING CODE------------------------\\
+//-----------------INPROGRESS - V0.1 -----------------------\\
 
-import java.io.UnsupportedEncodingException;
+package joshua.nrod.main;
 import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.util.Arrays;
+
 
 // Copyright Joshua Pope-Lewis
 
