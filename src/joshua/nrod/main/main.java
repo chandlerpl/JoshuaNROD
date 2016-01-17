@@ -19,10 +19,10 @@ public class main {
     public void go() throws Exception{
     	System.gc();
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
-    	System.out.println("| Network Rail Security Token: " + MyAuth.SEC_TOKEN);
+    	System.out.println("| Network Rail Security Token: " + Auth.SEC_TOKEN);
     	System.out.println("| Starting connection bond for " + SERVER);
         System.out.println("| Connecting...");
-        Client client = new Client(SERVER, PORT, MyAuth.USERNAME, MyAuth.PASSWORD);
+        Client client = new Client(SERVER, PORT, Auth.USERNAME, Auth.PASSWORD);
         if (client.isConnected()) {
             System.out.println("| Connected to " + SERVER + ":" + PORT);
         } else {
@@ -30,19 +30,19 @@ public class main {
             return;
         }
         System.out.println("| Subscribing...");
-        Listener SIGlistener = new MySIGListener();
-        Listener MVTlistener = new MyMVTListener();
-        Listener TSRlistener = new MyTSRListener();
-        Listener RTPMlistener = new MyRTPMListener();
+        Listener SIGlistener = new SIGListener();
+        Listener MVTlistener = new MVTListener();
+        Listener TSRlistener = new TSRListener();
+        Listener RTPMlistener = new RTPMListener();
         
-        client.subscribe(MyFeeds.TOPIC_SIG , SIGlistener);
-        System.out.println("| Subscribed to " + MyFeeds.TOPIC_SIG_AREA);
-        client.subscribe(MyFeeds.TOPIC_MVT , MVTlistener);
-        System.out.println("| Subscribed to " + MyFeeds.TOPIC_MVT_TOC);
-        client.subscribe(MyFeeds.TOPIC_TSR , TSRlistener);
-        System.out.println("| Subscribed to " + MyFeeds.TOPIC_TSR_AREA);
-        client.subscribe(MyFeeds.TOPIC_RTTPM , RTPMlistener);
-        System.out.println("| Subscribed to " + MyFeeds.TOPIC_RTTPM_ALL);
+        client.subscribe(Feeds.TOPIC_SIG , SIGlistener);
+        System.out.println("| Subscribed to " + Feeds.TOPIC_SIG_AREA);
+        client.subscribe(Feeds.TOPIC_MVT , MVTlistener);
+        System.out.println("| Subscribed to " + Feeds.TOPIC_MVT_TOC);
+        client.subscribe(Feeds.TOPIC_TSR , TSRlistener);
+        System.out.println("| Subscribed to " + Feeds.TOPIC_TSR_AREA);
+        client.subscribe(Feeds.TOPIC_RTTPM , RTPMlistener);
+        System.out.println("| Subscribed to " + Feeds.TOPIC_RTTPM_ALL);
         
         System.out.println("| Waiting for messages...");
     }

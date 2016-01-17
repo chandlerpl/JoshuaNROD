@@ -11,7 +11,7 @@ import java.util.Map;
 import joshua.nrod.stomp.Listener;
 
 // TSR Listener
-public class MyTSRListener implements Listener {
+public class TSRListener implements Listener {
 	public void message(Map header, String body) {
 		//System.out.println(header);
 	//	System.out.println(body);

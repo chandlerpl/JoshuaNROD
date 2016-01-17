@@ -6,7 +6,7 @@ import java.util.Map;
 
 import joshua.nrod.stomp.Listener;
 
-public class MyMVTListener implements Listener {
+public class MVTListener implements Listener {
 
 	@Override
 	public void message(Map header, String body) {

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import joshua.nrod.stomp.Listener;
 
-public class MySIGListener implements Listener {
+public class SIGListener implements Listener {
 	
 	public void message(Map header, String body) {
     

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import joshua.nrod.stomp.Listener;
 // RTPM_Listener
-public class MyRTPMListener implements Listener {
+public class RTPMListener implements Listener {
 
 	// TSR Listener
 		public void message(Map header, String body) {
