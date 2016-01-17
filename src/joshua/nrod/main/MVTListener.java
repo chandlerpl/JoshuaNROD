@@ -10,8 +10,8 @@ public class MVTListener implements Listener {
 
 	@Override
 	public void message(Map header, String body) {
-		//System.out.println(header);
-	//	System.out.println(body);
+		System.out.println(header);
+		System.out.println(body);
 		
 		final List<String> ListBodyMVT = new ArrayList<String>();
 		   
@@ -19,7 +19,7 @@ public class MVTListener implements Listener {
       	
 		while(s != -1) {
 			int t = body.indexOf(".");
-			s = body.indexOf("},{");
+			s = body.indexOf("}},{");
   		   
 			if(s == -1) {				
 				body = body.substring(s+1, body.length()-1).replaceAll("\"", "'");
@@ -67,7 +67,7 @@ public class MVTListener implements Listener {
 				}
 		}
 			 } catch(Exception e){
-					System.out.println("Exception caught " + e);
+					System.out.println("Exception caught MVT " + e);
 				}
 			}
 	}

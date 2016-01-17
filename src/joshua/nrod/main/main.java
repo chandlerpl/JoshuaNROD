@@ -1,5 +1,9 @@
 package joshua.nrod.main;
 
+import java.io.IOException;
+
+import javax.security.auth.login.LoginException;
+
 import joshua.nrod.stomp.Client;
 import joshua.nrod.stomp.Listener;
 
