@@ -4,44 +4,116 @@ import java.lang.invoke.MethodHandles.Lookup;
 
 public class MVTMethods {
 	public static void MVT_0001_MSG(String MVT_MSG) {
-		int MVTType = MVT_MSG.indexOf("msg_type");
- 		String MVT1 = MVT_MSG.substring(MVTType+11, MVTType+15);
- 		int MVTToc = MVT_MSG.indexOf("toc_id");
- 		String MVTToc1 = MVT_MSG.substring(MVTToc+9, MVTToc+11);
-		
-		// java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 System.out.println("MVT_MSG: " + MVT1 + ", "+MVTToc1);
-		 
+		 MVT_MSG = MVT_MSG.replaceAll("\\{", "");   // strip {
+			MVT_MSG = MVT_MSG.replaceAll("\\}", "");  // strip }
+			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
+			MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
+			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+			 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
+			 
+			 String msg_type = "";
+			 String toc_id = "";
+			 String report_time = "";
+			 
+
+			 
+			 
+			 for(int i = 0; i < mvtContent.length;i++) {
+			  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
+			  String tag = mvtLine[0];
+			  String val = mvtLine[1];
+			  
+			  if(tag.equalsIgnoreCase("msg_type")) {
+				  msg_type = val;
+			  } else if(tag.equalsIgnoreCase("toc_id")) {
+				  toc_id = val;
+			  } else if(tag.equalsIgnoreCase("report_time")) {
+				  report_time = val;
+			  }
+			  
+			  }		 
+			 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
+
+
+	 System.out.println(msg_type + "_MSG: Operator " + toc_id + " at " + report_time1);
+
 		 	}
 	
 	public static void MVT_0002_MSG(String MVT_MSG) {
-		int MVTType = MVT_MSG.indexOf("msg_type");
- 		String MVT1 = MVT_MSG.substring(MVTType+11, MVTType+15);
- 		int MVTToc = MVT_MSG.indexOf("toc_id");
- 		String MVTToc1 = MVT_MSG.substring(MVTToc+9, MVTToc+11);
-		
-		// java.util.Date time2 = new java.util.Date(Long.parseLong(time1));
-		 System.out.println("MVT_MSG: " + MVT1 + ", "+MVTToc1);
+		MVT_MSG = MVT_MSG.replaceAll("\\{", "");   // strip {
+		MVT_MSG = MVT_MSG.replaceAll("\\}", "");  // strip }
+		MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
+		MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
+		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+		 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
 		 
-		 	}
+		 String msg_type = "";
+		 String toc_id = "";
+		 String report_time = "";
+		 
+
+		 
+		 
+		 for(int i = 0; i < mvtContent.length;i++) {
+		  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
+		  String tag = mvtLine[0];
+		  String val = mvtLine[1];
+		  
+		  if(tag.equalsIgnoreCase("msg_type")) {
+			  msg_type = val;
+		  } else if(tag.equalsIgnoreCase("toc_id")) {
+			  toc_id = val;
+		  } else if(tag.equalsIgnoreCase("report_time")) {
+			  report_time = val;
+		  }
+		  
+		  }		 
+		 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
+
+
+ System.out.println(msg_type + "_MSG: Operator " + toc_id + " at " + report_time1);
 	
+		 	}
+
 	public static void MVT_0003_MSG(String MVT_MSG) {
-		int MVTType = MVT_MSG.indexOf("msg_type");
- 			String MVT1 = MVT_MSG.substring(MVTType+11, MVTType+15);
- 		int MVTToc = MVT_MSG.indexOf("toc_id");
- 			String MVTToc1 = MVT_MSG.substring(MVTToc+9, MVTToc+11);
- 		int MVTTime = MVT_MSG.indexOf("msg_queue_timestamp");
- 			String MVTTime1 = MVT_MSG.substring(MVTTime+22, MVTTime+35);
- 		int MVTNRS = MVT_MSG.indexOf("next_report_stanox");
- 			String MVTNRS1 = MVT_MSG.substring(MVTNRS+21, MVTNRS+26);
- 		int MVTRS = MVT_MSG.indexOf("loc_stanox");
- 			String MVTRS1 = MVT_MSG.substring(MVTRS+13, MVTRS+18);
- 		int MVTTRC = MVT_MSG.indexOf("train_service_code");
- 			String MVTTRC1 = MVT_MSG.substring(MVTTRC+21, MVTTRC+29);
- 				 
-		 java.util.Date MVTTime2 = new java.util.Date(Long.parseLong(MVTTime1));
-		 System.out.println("MVT_MSG " + MVT1 + ": Train "+ MVTTRC1 + " operated by TOC " + MVTToc1 +" reported at " + MVTRS1 + " next report at "+ MVTNRS1 + ". Report sent at " +MVTTime2 );
-		 
+
+		 MVT_MSG = MVT_MSG.replaceAll("\\{", "");   // strip {
+			MVT_MSG = MVT_MSG.replaceAll("\\}", "");  // strip }
+			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
+			MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
+			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
+			 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
+			 
+			 String msg_type = "";
+			 String toc_id = "";
+			 String report_time = "";
+			 String next_report_stanox = "";
+			 String loc_stanox = "";
+			 String train_service_code = "";
+			 
+			 for(int i = 0; i < mvtContent.length;i++) {
+			  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
+			  String tag = mvtLine[0];
+			  String val = mvtLine[1];
+			  
+			  if(tag.equalsIgnoreCase("msg_type")) {
+				  msg_type = val;
+			  } else if(tag.equalsIgnoreCase("toc_id")) {
+				  toc_id = val;
+			  } else if(tag.equalsIgnoreCase("report_time")) {
+				  report_time = val;
+			  } else if(tag.equalsIgnoreCase("next_report_stanox")) {
+				  next_report_stanox = val;
+			  } else if(tag.equalsIgnoreCase("loc_stanox")) {
+				  loc_stanox = val;
+			  } else if(tag.equalsIgnoreCase("train_service_code")) {
+				  train_service_code = val;
+			  }	
+			 }
+			 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
+
+			 System.out.println("MVT_MSG " + msg_type + ": Train "+ train_service_code + " operated by TOC " + toc_id +" reported at " + loc_stanox + " next report at "+ next_report_stanox + ". Report sent at " +report_time1 );
+			 
 		 	}
 	public static void MVT_0004_MSG(String MVT_MSG) {
 		int MVTType = MVT_MSG.indexOf("msg_type");
