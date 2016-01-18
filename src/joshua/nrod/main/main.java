@@ -21,7 +21,6 @@ public class main {
             }
     
     public void go() throws Exception{
-    	System.gc();
     	System.out.println("| JPLogics - NROD Connection.." + VERSION);
     	System.out.println("| Network Rail Security Token: " + Auth.SEC_TOKEN);
     	System.out.println("| Starting connection bond for " + SERVER);

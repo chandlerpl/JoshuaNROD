@@ -80,7 +80,7 @@ public class MVTMethods {
 		 MVT_MSG = MVT_MSG.replaceAll("\\{", "");   // strip {
 			MVT_MSG = MVT_MSG.replaceAll("\\}", "");  // strip }
 			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
-			MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
+			MVT_MSG = MVT_MSG.replaceAll("MVT_MSG:",""); //strip the header   
 			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
 			 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
 			 
