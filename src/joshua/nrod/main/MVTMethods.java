@@ -22,7 +22,9 @@ public class MVTMethods {
 			  String[] mvtLine1 = mvtContent1[i].split(":");   //now split the line at the colon
 			  String tag = mvtLine1[0];
 			  String val = mvtLine1[1];
-			  
+			  if(val.isEmpty()) {
+				  
+			  } else {
 			  if(tag.equalsIgnoreCase("msg_type")) {
 				  msg_type = val;
 			  } else if(tag.equalsIgnoreCase("toc_id")) {
@@ -31,7 +33,8 @@ public class MVTMethods {
 				  report_time = val;
 			  }
 			  
-			  }		 
+			  }		
+			 }
 			 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
 
 
@@ -58,7 +61,9 @@ public class MVTMethods {
 		  String[] mvtLine2 = mvtContent2[i].split(":");   //now split the line at the colon
 		  String tag = mvtLine2[0];
 		  String val = mvtLine2[1];
-		  
+		  if(val.isEmpty()) {
+			  
+		  } else {
 		  if(tag.equalsIgnoreCase("msg_type")) {
 			  msg_type = val;
 		  } else if(tag.equalsIgnoreCase("toc_id")) {
@@ -66,7 +71,7 @@ public class MVTMethods {
 		  } else if(tag.equalsIgnoreCase("report_time")) {
 			  report_time = val;
 		  }
-		  
+		  }
 		  }		 
 		 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
 
@@ -96,6 +101,8 @@ public class MVTMethods {
 			  String tag = mvtLine3[0];
 			  String val = mvtLine3[1];
 			  
+			  if(val.isEmpty()) {
+				   } else {
 			  if(tag.equalsIgnoreCase("msg_type")) {
 				  msg_type = val;
 			  } else if(tag.equalsIgnoreCase("toc_id")) {
@@ -109,6 +116,7 @@ public class MVTMethods {
 			  } else if(tag.equalsIgnoreCase("train_service_code")) {
 				  train_service_code = val;
 			  }	
+			 }
 			 }
 			 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
 
