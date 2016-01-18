@@ -9,7 +9,7 @@ public class MVTMethods {
 			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
 			MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
 			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-			 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
+			 String[] mvtContent1 = MVT_MSG.split(",");  // split each value at the commas
 			 
 			 String msg_type = "";
 			 String toc_id = "";
@@ -18,10 +18,10 @@ public class MVTMethods {
 
 			 
 			 
-			 for(int i = 0; i < mvtContent.length;i++) {
-			  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
-			  String tag = mvtLine[0];
-			  String val = mvtLine[1];
+			 for(int i = 0; i < mvtContent1.length;i++) {
+			  String[] mvtLine1 = mvtContent1[i].split(":");   //now split the line at the colon
+			  String tag = mvtLine1[0];
+			  String val = mvtLine1[1];
 			  
 			  if(tag.equalsIgnoreCase("msg_type")) {
 				  msg_type = val;
@@ -45,7 +45,7 @@ public class MVTMethods {
 		MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
 		MVT_MSG = MVT_MSG.replaceAll("CT_MSG:",""); //strip the header   
 		//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-		 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
+		 String[] mvtContent2 = MVT_MSG.split(",");  // split each value at the commas
 		 
 		 String msg_type = "";
 		 String toc_id = "";
@@ -54,10 +54,10 @@ public class MVTMethods {
 
 		 
 		 
-		 for(int i = 0; i < mvtContent.length;i++) {
-		  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
-		  String tag = mvtLine[0];
-		  String val = mvtLine[1];
+		 for(int i = 0; i < mvtContent2.length;i++) {
+		  String[] mvtLine2 = mvtContent2[i].split(":");   //now split the line at the colon
+		  String tag = mvtLine2[0];
+		  String val = mvtLine2[1];
 		  
 		  if(tag.equalsIgnoreCase("msg_type")) {
 			  msg_type = val;
@@ -82,7 +82,7 @@ public class MVTMethods {
 			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
 			MVT_MSG = MVT_MSG.replaceAll("MVT_MSG:",""); //strip the header   
 			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
-			 String[] mvtContent = MVT_MSG.split(",");  // split each value at the commas
+			 String[] mvtContent3 = MVT_MSG.split(",");  // split each value at the commas
 			 
 			 String msg_type = "";
 			 String toc_id = "";
@@ -91,10 +91,10 @@ public class MVTMethods {
 			 String loc_stanox = "";
 			 String train_service_code = "";
 			 
-			 for(int i = 0; i < mvtContent.length;i++) {
-			  String[] mvtLine = mvtContent[i].split(":");   //now split the line at the colon
-			  String tag = mvtLine[0];
-			  String val = mvtLine[1];
+			 for(int i = 0; i < mvtContent3.length;i++) {
+			  String[] mvtLine3 = mvtContent3[i].split(":");   //now split the line at the colon
+			  String tag = mvtLine3[0];
+			  String val = mvtLine3[1];
 			  
 			  if(tag.equalsIgnoreCase("msg_type")) {
 				  msg_type = val;
