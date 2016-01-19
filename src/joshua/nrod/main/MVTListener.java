@@ -11,7 +11,7 @@ public class MVTListener implements Listener {
 	@Override
 	public void message(Map header, String body) {
 //		System.out.println(header);
-//		System.out.println(body);
+		System.out.println(body);
 		
 		final List<String> ListBodyMVT = new ArrayList<String>();
 		   
@@ -43,12 +43,12 @@ public class MVTListener implements Listener {
 		for(int i = 0; i < ListBodyMVT.size(); i++) {
 			try{
 				Thread.sleep(100);
-				
-				
+				String ListBodyMVT1 = ListBodyMVT.get(i);
+				ListBodyMVT1 = ListBodyMVT1.replaceAll(":''", ":'null'");
   	
-				if (ListBodyMVT.get(i).contains("'toc_id':'64'")) {
-					if (ListBodyMVT.get(i).contains("msg_type':'0003'")) {
-						MVTMethods.MVT_0003_MSG(ListBodyMVT.get(i));
+				if (ListBodyMVT1.contains("'toc_id':'64'")) {
+					if (ListBodyMVT1.contains("msg_type':'0003'")) {
+						MVTMethods.MVT_0003_MSG(ListBodyMVT1);
 						} /*else if (ListBodyMVT.get(i).contains("msg_type':'0002'")) {
 							MVTMethods.MVT_0002_MSG(ListBodyMVT.get(i));
 						} else if (ListBodyMVT.get(i).contains("msg_type':'0003'"))  {
@@ -67,7 +67,7 @@ public class MVTListener implements Listener {
 				}
 		
 			 } catch(Exception e){
-					System.out.println("Exception caught MVT " + e);
+					System.out.println("Exception caught MVT " + e );
 				}
 			}
 	}

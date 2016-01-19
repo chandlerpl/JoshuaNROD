@@ -34,12 +34,12 @@ public class MVTMethods {
 			  }
 			  
 			  }		
-			 }
+			 
 			 java.util.Date report_time1 = new java.util.Date(Long.parseLong(report_time));
 
 
 	 System.out.println(msg_type + "_MSG: Operator " + toc_id + " at " + report_time1);
-
+			 }
 		 	}
 	
 	public static void MVT_0002_MSG(String MVT_MSG) {
@@ -83,12 +83,13 @@ public class MVTMethods {
 	public static void MVT_0003_MSG(String MVT_MSG) {
 
 		 MVT_MSG = MVT_MSG.replaceAll("\\{", "");   // strip {
-		 	MVT_MSG = MVT_MSG.replaceAll(":''", ":'na'");
+		 	
 			MVT_MSG = MVT_MSG.replaceAll("\\}", "");  // strip }
 			MVT_MSG = MVT_MSG.replaceAll("\'", "");  //strip single quotes
-			MVT_MSG = MVT_MSG.replaceAll("MVT_MSG:",""); //strip the header
-			MVT_MSG = MVT_MSG.replaceAll("body:","");
-			MVT_MSG = MVT_MSG.replaceAll("header:","");
+		   // MVT_MSG = MVT_MSG.replaceAll("MVT_MSG:",""); //strip the header
+			//MVT_MSG = MVT_MSG.replaceAll("body:","");
+			//MVT_MSG = MVT_MSG.replaceAll("header:","");
+			//MVT_MSG = MVT_MSG.replaceAll(",msg_type", "msg_type");
 			System.out.println(MVT_MSG);
 			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
 			 String[] mvtContent3 = MVT_MSG.split(",");  // split each value at the commas
@@ -100,6 +101,7 @@ public class MVTMethods {
 			 String loc_stanox = "";
 			 String train_service_code = "";
 			 
+		// System.out.println(mvtContent3);
 			 for(int i = 0; i < mvtContent3.length;i++) {
 			  String[] mvtLine3 = mvtContent3[i].split(":");   //now split the line at the colon
 			  String tag = mvtLine3[0];
