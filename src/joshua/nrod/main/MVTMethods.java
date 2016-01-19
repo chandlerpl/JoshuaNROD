@@ -100,6 +100,7 @@ public class MVTMethods {
 			 String next_report_stanox = "";
 			 String loc_stanox = "";
 			 String train_service_code = "";
+			 String source_dev_id = "";
 			 
 		// System.out.println(mvtContent3);
 			 for(int i = 0; i < mvtContent3.length;i++) {
@@ -118,7 +119,10 @@ public class MVTMethods {
 			  }  else if(tag.equalsIgnoreCase("loc_stanox")) {
 					   loc_stanox = val;
 			  }  else if(tag.equalsIgnoreCase("train_service_code")) {
-					   train_service_code = val;
+				  		train_service_code = val;
+			  }  else if(tag.equalsIgnoreCase("source_dev_id")) {
+				  		source_dev_id = val;
+					  
 				   
 			  	}
 			  }
