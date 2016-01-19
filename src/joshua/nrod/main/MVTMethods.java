@@ -89,7 +89,7 @@ public class MVTMethods {
 		   // MVT_MSG = MVT_MSG.replaceAll("MVT_MSG:",""); //strip the header
 			//MVT_MSG = MVT_MSG.replaceAll("body:","");
 			//MVT_MSG = MVT_MSG.replaceAll("header:","");
-			//MVT_MSG = MVT_MSG.replaceAll(",msg_type", "msg_type");
+			// MVT_MSG = MVT_MSG.replaceAll(",header:", "header:0003,");
 			System.out.println(MVT_MSG);
 			//time:1452473490000,area_id:SK,address:71,msg_type:SF,data:EA   -- what the new string is!
 			 String[] mvtContent3 = MVT_MSG.split(",");  // split each value at the commas
