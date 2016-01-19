@@ -10,8 +10,8 @@ public class MVTListener implements Listener {
 
 	@Override
 	public void message(Map header, String body) {
-		System.out.println(header);
-		System.out.println(body);
+//		System.out.println(header);
+//		System.out.println(body);
 		
 		final List<String> ListBodyMVT = new ArrayList<String>();
 		   
@@ -47,9 +47,9 @@ public class MVTListener implements Listener {
 				
   	
 				if (ListBodyMVT.get(i).contains("'toc_id':'64'")) {
-					if (ListBodyMVT.get(i).contains("msg_type':'0001'")) {
-						MVTMethods.MVT_0001_MSG(ListBodyMVT.get(i));
-						} else if (ListBodyMVT.get(i).contains("msg_type':'0002'")) {
+					if (ListBodyMVT.get(i).contains("msg_type':'0003'")) {
+						MVTMethods.MVT_0003_MSG(ListBodyMVT.get(i));
+						} /*else if (ListBodyMVT.get(i).contains("msg_type':'0002'")) {
 							MVTMethods.MVT_0002_MSG(ListBodyMVT.get(i));
 						} else if (ListBodyMVT.get(i).contains("msg_type':'0003'"))  {
 							MVTMethods.MVT_0003_MSG(ListBodyMVT.get(i));
@@ -62,10 +62,10 @@ public class MVTListener implements Listener {
 						} else if (ListBodyMVT.get(i).contains("msg_type':'0007'")) {
 							MVTMethods.MVT_0007_MSG(ListBodyMVT.get(i));
 						} else if (ListBodyMVT.get(i).contains("msg_type':'0008'")) {
-							MVTMethods.MVT_0008_MSG(ListBodyMVT.get(i));
+							MVTMethods.MVT_0008_MSG(ListBodyMVT.get(i));*/
 					} else {
 				}
-		}
+		
 			 } catch(Exception e){
 					System.out.println("Exception caught MVT " + e);
 				}
